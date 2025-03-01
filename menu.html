@@ -118,7 +118,7 @@
             border: 1px solid #ddd;
         }
         
-        /* Contenedor de menús */
+        /* Menu Content Styles */
         .menu-sections {
             margin-top: 40px;
         }
@@ -131,80 +131,19 @@
             display: block;
         }
         
-        .menu-item-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-            gap: 30px;
+        .menu-image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
             margin-bottom: 40px;
         }
         
-        .menu-category {
-            background-color: #1a1a1a;
-            background-image: url('/api/placeholder/500/350');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            color: white;
+        .menu-image {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .menu-category-header {
-            padding: 15px 20px;
-            font-size: 24px;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-bottom: 1px solid #444;
-        }
-        
-        .menu-items {
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-        
-        .menu-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #444;
-        }
-        
-        .menu-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .menu-item-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-        }
-        
-        .menu-item-name h4 {
-            color: #fff;
-            font-size: 18px;
-        }
-        
-        .menu-item-price {
-            font-weight: bold;
-            color: #e67e22;
-        }
-        
-        .menu-item-description {
-            color: #bbb;
-            font-size: 14px;
-            font-style: italic;
-        }
-        
-        .menu-footer {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .menu-footer p {
-            color: #666;
-            font-style: italic;
         }
         
         .allergies {
@@ -248,6 +187,16 @@
             font-size: 12px;
             color: #666;
             text-align: center;
+        }
+        
+        .menu-footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .menu-footer p {
+            color: #666;
+            font-style: italic;
         }
         
         .back-to-top {
@@ -350,10 +299,6 @@
                 margin-top: 15px;
                 justify-content: center;
             }
-            
-            .menu-item-wrapper {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -379,19 +324,25 @@
             <h1>Nuestra Carta</h1>
             <p>Descubre nuestra selección de platos elaborados con productos frescos y de temporada</p>
             
-            <!-- Selector de idiomas -->
+            <!-- Selector de idiomas con banderas -->
             <div class="language-selector">
                 <button class="language-btn active" data-lang="es">
-                    <img src="/api/placeholder/30/20" alt="Español"> Español
+                    <img src="/api/placeholder/30/20" alt="Bandera de España"> Español
                 </button>
                 <button class="language-btn" data-lang="de">
-                    <img src="/api/placeholder/30/20" alt="Alemán"> Deutsch
+                    <img src="/api/placeholder/30/20" alt="Bandera de Alemania"> Deutsch
                 </button>
                 <button class="language-btn" data-lang="fr">
-                    <img src="/api/placeholder/30/20" alt="Francés"> Français
+                    <img src="/api/placeholder/30/20" alt="Bandera de Francia"> Français
                 </button>
                 <button class="language-btn" data-lang="it">
-                    <img src="/api/placeholder/30/20" alt="Italiano"> Italiano
+                    <img src="/api/placeholder/30/20" alt="Bandera de Italia"> Italiano
+                </button>
+                <button class="language-btn" data-lang="cn">
+                    <img src="/api/placeholder/30/20" alt="Bandera de China"> 中文
+                </button>
+                <button class="language-btn" data-lang="pl">
+                    <img src="/api/placeholder/30/20" alt="Bandera de Polonia"> Polski
                 </button>
             </div>
         </div>
@@ -400,244 +351,55 @@
         <div class="menu-sections">
             <!-- Menú en Español -->
             <div class="menu-section active" id="menu-es">
-                <div class="menu-item-wrapper">
-                    <div class="menu-category">
-                        <div class="menu-category-header">ENTRANTES</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Pulpo a la gallega</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Pulpo cocido con aceite de oliva, pimentón y sal gruesa</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Croquetas caseras</h4>
-                                    <span class="menu-item-price">9,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Croquetas cremosas de jamón ibérico</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Tortilla española</h4>
-                                    <span class="menu-item-price">8,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Tortilla de patata tradicional</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Pimientos de Padrón</h4>
-                                    <span class="menu-item-price">7,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Pimientos verdes fritos con sal gruesa</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <div class="menu-category-header">PESCADOS</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Merluza a la gallega</h4>
-                                    <span class="menu-item-price">19,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Merluza con patatas y refrito de ajo y pimentón</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Bacalao con pisto</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Lomo de bacalao sobre base de verduras</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Rodaballo a la plancha</h4>
-                                    <span class="menu-item-price">22,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Rodaballo fresco con patatas y refrito</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="menu-item-wrapper">
-                    <div class="menu-category">
-                        <div class="menu-category-header">CARNES</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Solomillo de ternera</h4>
-                                    <span class="menu-item-price">24,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Solomillo de ternera gallega con guarnición</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Cocido gallego</h4>
-                                    <span class="menu-item-price">16,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Tradicional cocido con carnes, verduras y garbanzos</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Lacón con grelos</h4>
-                                    <span class="menu-item-price">15,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Lacón cocido con grelos y patatas</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <div class="menu-category-header">POSTRES</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Tarta de Santiago</h4>
-                                    <span class="menu-item-price">5,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Tradicional tarta de almendra</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Filloas</h4>
-                                    <span class="menu-item-price">5,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Crepes típicos gallegos</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Arroz con leche</h4>
-                                    <span class="menu-item-price">4,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Arroz con leche casero con canela</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="menu-image-container">
+                    <!-- Suponiendo que las imágenes corresponden a las diferentes secciones del menú en español -->
+                    <img src="/api/placeholder/800/1200" alt="Carta Entrantes" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="Carta Carnes y Pescados" class="menu-image">
                 </div>
             </div>
             
             <!-- Menú en Alemán -->
             <div class="menu-section" id="menu-de">
-                <div class="menu-item-wrapper">
-                    <div class="menu-category">
-                        <div class="menu-category-header">VORSPEISEN</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Pulpo Galizische Art</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Gekochter Oktopus mit Olivenöl, Paprika und grobem Salz</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Hausgemachte Kroketten</h4>
-                                    <span class="menu-item-price">9,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Cremige Kroketten mit iberischem Schinken</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Spanisches Omelett</h4>
-                                    <span class="menu-item-price">8,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Traditionelles Kartoffelomelett</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <div class="menu-category-header">FISCH</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Seehecht Galizische Art</h4>
-                                    <span class="menu-item-price">19,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Seehecht mit Kartoffeln und Knoblauch-Paprika-Sauce</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Kabeljau mit Gemüse</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Kabeljaufilet auf Gemüsebett</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="menu-image-container">
+                    <!-- Imágenes del menú en alemán -->
+                    <img src="/api/placeholder/800/1200" alt="Vorspeisen" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="Fleisch und Fisch" class="menu-image">
                 </div>
             </div>
             
             <!-- Menú en Francés -->
             <div class="menu-section" id="menu-fr">
-                <div class="menu-item-wrapper">
-                    <div class="menu-category">
-                        <div class="menu-category-header">ENTRÉES</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Poulpe à la galicienne</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Poulpe cuit avec huile d'olive, paprika et gros sel</p>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Croquettes maison</h4>
-                                    <span class="menu-item-price">9,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Croquettes crémeuses au jambon ibérique</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <div class="menu-category-header">POISSONS</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Merlu à la galicienne</h4>
-                                    <span class="menu-item-price">19,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Merlu avec pommes de terre et sauce à l'ail et paprika</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="menu-image-container">
+                    <!-- Imágenes del menú en francés -->
+                    <img src="/api/placeholder/800/1200" alt="Entrées" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="Viandes et Poissons" class="menu-image">
                 </div>
             </div>
             
             <!-- Menú en Italiano -->
             <div class="menu-section" id="menu-it">
-                <div class="menu-item-wrapper">
-                    <div class="menu-category">
-                        <div class="menu-category-header">ANTIPASTI</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Polpo alla galiziana</h4>
-                                    <span class="menu-item-price">18,50 €</span>
-                                </div>
-                                <p class="menu-item-description">Polpo cotto con olio d'oliva, paprika e sale grosso</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="menu-category">
-                        <div class="menu-category-header">PESCE</div>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-name">
-                                    <h4>Nasello alla galiziana</h4>
-                                    <span class="menu-item-price">19,90 €</span>
-                                </div>
-                                <p class="menu-item-description">Nasello con patate e salsa di aglio e paprika</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="menu-image-container">
+                    <!-- Imágenes del menú en italiano -->
+                    <img src="/api/placeholder/800/1200" alt="Antipasti" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="Carni e Pesce" class="menu-image">
+                </div>
+            </div>
+            
+            <!-- Menú en Chino -->
+            <div class="menu-section" id="menu-cn">
+                <div class="menu-image-container">
+                    <!-- Imágenes del menú en chino -->
+                    <img src="/api/placeholder/800/1200" alt="开胃菜" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="肉类和海鲜" class="menu-image">
+                </div>
+            </div>
+            
+            <!-- Menú en Polaco -->
+            <div class="menu-section" id="menu-pl">
+                <div class="menu-image-container">
+                    <!-- Imágenes del menú en polaco -->
+                    <img src="/api/placeholder/800/1200" alt="Przystawki" class="menu-image">
+                    <img src="/api/placeholder/800/1200" alt="Mięso i Ryby" class="menu-image">
                 </div>
             </div>
         </div>
@@ -746,3 +508,5 @@
             &copy; 2025 Restaurante Enxebre. Todos los derechos reservados.
         </div>
     </footer>
+</body>
+</html>
