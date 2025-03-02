@@ -14,12 +14,12 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f9ff; /* Fondo azul muy claro */
         }
         
         /* Cabecera */
         header {
-            background-color: #1a1a1a;
+            background-color: #4b3f72; /* Púrpura oscuro */
             color: white;
             padding: 10px 0;
             position: sticky;
@@ -61,7 +61,7 @@
         }
         
         nav ul li a:hover {
-            color: #6a94c2;
+            color: #a6d8f0; /* Azul claro para hover */
         }
         
         /* Página del Menú */
@@ -78,7 +78,7 @@
         
         .menu-header h1 {
             font-size: 36px;
-            color: #333;
+            color: #4b3f72; /* Púrpura oscuro */
             margin-bottom: 10px;
         }
         
@@ -89,9 +89,9 @@
         .language-selector {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 15px;
             margin-top: 20px;
-            flex-wrap: wrap;
         }
         
         .language-btn {
@@ -111,7 +111,7 @@
         }
         
         .language-btn.active {
-            border: 2px solid #6a94c2;
+            border: 2px solid #8c65c3; /* Lila */
         }
         
         .language-btn img {
@@ -148,49 +148,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .allergies {
-            margin-top: 30px;
-            text-align: center;
-        }
-        
-        .allergies-title {
-            font-size: 20px;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        
-        .allergy-icons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .allergy-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 70px;
-        }
-        
-        .allergy-icon span {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 5px;
-            font-size: 20px;
-        }
-        
-        .allergy-icon p {
-            font-size: 12px;
-            color: #666;
-            text-align: center;
-        }
-        
         .menu-footer {
             text-align: center;
             margin-top: 50px;
@@ -207,7 +164,7 @@
             right: 20px;
             width: 40px;
             height: 40px;
-            background-color: #6a94c2;
+            background-color: #8c65c3; /* Lila */
             color: white;
             border-radius: 50%;
             display: flex;
@@ -219,12 +176,12 @@
         }
         
         .back-to-top:hover {
-            background-color: #4a74a2;
+            background-color: #6a4a9e; /* Morado más oscuro para hover */
         }
         
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #4b3f72; /* Púrpura oscuro */
             color: white;
             padding: 40px 0;
             margin-top: 50px;
@@ -245,7 +202,7 @@
         }
         
         .footer-section p {
-            color: #bbb;
+            color: #d9cdf9; /* Lila muy claro */
             line-height: 1.6;
         }
         
@@ -258,7 +215,7 @@
         }
         
         .footer-section ul li a {
-            color: #bbb;
+            color: #d9cdf9; /* Lila muy claro */
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -280,13 +237,13 @@
         }
         
         .social-icons a:hover {
-            color: #6a94c2;
+            color: #a6d8f0; /* Azul claro */
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            color: #999;
+            color: #d9cdf9; /* Lila muy claro */
             font-size: 14px;
         }
         
@@ -323,7 +280,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background-color: #1a1a1a;
+                background-color: #4b3f72; /* Púrpura oscuro */
                 padding: 10px 0;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.2);
                 z-index: 1000;
@@ -353,7 +310,7 @@
             }
             
             .mobile-nav ul li a:hover {
-                background-color: #333;
+                background-color: #6a4a9e; /* Morado más oscuro */
             }
             
             .menu-page {
@@ -370,15 +327,6 @@
             }
             
             .language-btn {
-                margin: 5px;
-            }
-            
-            .allergies .allergy-icons {
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            .allergies .allergy-icon {
                 margin: 5px;
             }
             
@@ -539,45 +487,6 @@
                 <div class="menu-image-container">
                     <img src="images/menu-polaco-1.jpg" alt="Przystawki" class="menu-image">
                     <img src="images/menu-polaco-2.jpg" alt="Mięso i Ryby" class="menu-image">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Información sobre alérgenos -->
-        <div class="allergies">
-            <h3 class="allergies-title">Información sobre alérgenos</h3>
-            <div class="allergy-icons">
-                <div class="allergy-icon">
-                    <span>G</span>
-                    <p>Gluten</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>L</span>
-                    <p>Lácteos</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>H</span>
-                    <p>Huevo</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>P</span>
-                    <p>Pescado</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>M</span>
-                    <p>Moluscos</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>A</span>
-                    <p>Apio</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>S</span>
-                    <p>Sésamo</p>
-                </div>
-                <div class="allergy-icon">
-                    <span>F</span>
-                    <p>Frutos secos</p>
                 </div>
             </div>
         </div>
