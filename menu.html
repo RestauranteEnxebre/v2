@@ -34,6 +34,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
         }
         
         .logo {
@@ -90,6 +91,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         
         .language-btn {
@@ -288,16 +290,149 @@
             font-size: 14px;
         }
         
-        /* Responsive */
+        /* Estilos para el menú hamburguesa */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Estilos responsivos */
         @media (max-width: 768px) {
             .logo-container {
                 flex-direction: column;
                 text-align: center;
+                padding: 10px;
             }
             
-            nav ul {
-                margin-top: 15px;
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+            }
+            
+            .mobile-nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #1a1a1a;
+                padding: 10px 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                z-index: 1000;
+            }
+            
+            .mobile-nav.show-mobile-menu {
+                display: block;
+            }
+            
+            .mobile-nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 0;
+                margin-top: 0;
+            }
+            
+            .mobile-nav ul li {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .mobile-nav ul li a {
+                display: block;
+                padding: 10px 0;
+                width: 100%;
+            }
+            
+            .mobile-nav ul li a:hover {
+                background-color: #333;
+            }
+            
+            .menu-page {
+                padding: 20px 15px;
+            }
+            
+            .menu-header h1 {
+                font-size: 28px;
+            }
+            
+            .language-selector {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .language-btn {
+                margin: 5px;
+            }
+            
+            .allergies .allergy-icons {
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .allergies .allergy-icon {
+                margin: 5px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+        
+        /* Ajustes adicionales para dispositivos muy pequeños */
+        @media (max-width: 480px) {
+            .menu-header h1 {
+                font-size: 24px;
+            }
+            
+            .menu-page {
+                padding: 15px 10px;
+            }
+            
+            .language-selector {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .language-btn {
+                width: 80%;
+                margin: 5px 0;
+                justify-content: center;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            h2 {
+                font-size: 24px;
+            }
+            
+            h3 {
+                font-size: 20px;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
             }
         }
     </style>
@@ -330,8 +465,8 @@
                     <img src="images/spain-flag.png" alt="Español"> Español
                 </button>
                 <button class="language-btn" data-lang="en">
-    <img src="images/england-flag.png" alt="English"> English
-</button>
+                    <img src="images/england-flag.png" alt="English"> English
+                </button>
                 <button class="language-btn" data-lang="de">
                     <img src="images/germany-flag.png" alt="Alemán"> Deutsch
                 </button>
@@ -360,12 +495,12 @@
                 </div>
             </div>
             <!-- Menú en Inglés -->
-<div class="menu-section" id="menu-en">
-    <div class="menu-image-container">
-        <img src="images/menu-ingles-1.jpg" alt="Starters" class="menu-image">
-        <img src="images/menu-ingles-2.jpg" alt="Main Courses" class="menu-image">
-    </div>
-</div>
+            <div class="menu-section" id="menu-en">
+                <div class="menu-image-container">
+                    <img src="images/menu-ingles-1.jpg" alt="Starters" class="menu-image">
+                    <img src="images/menu-ingles-2.jpg" alt="Main Courses" class="menu-image">
+                </div>
+            </div>
             
             <!-- Menú en Alemán -->
             <div class="menu-section" id="menu-de">
@@ -455,32 +590,6 @@
     
     <a href="#" class="back-to-top">↑</a>
     
-    <!-- Script para cambiar entre idiomas -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const langButtons = document.querySelectorAll('.language-btn');
-            const menuSections = document.querySelectorAll('.menu-section');
-            
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.dataset.lang;
-                    
-                    // Cambiar clase activa en botones
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Mostrar el menú del idioma seleccionado
-                    menuSections.forEach(section => {
-                        section.classList.remove('active');
-                        if (section.id === `menu-${lang}`) {
-                            section.classList.add('active');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
-    
     <!-- Pie de página -->
     <footer>
         <div class="footer-content">
@@ -512,5 +621,80 @@
             &copy; 2025 Restaurante Enxebre. Todos los derechos reservados.
         </div>
     </footer>
+    
+    <!-- Script para cambiar entre idiomas y menú hamburguesa -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Funcionalidad para cambiar entre idiomas
+            const langButtons = document.querySelectorAll('.language-btn');
+            const menuSections = document.querySelectorAll('.menu-section');
+            
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    
+                    // Cambiar clase activa en botones
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Mostrar el menú del idioma seleccionado
+                    menuSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === `menu-${lang}`) {
+                            section.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // Crear el botón de hamburguesa y añadirlo al DOM
+            const header = document.querySelector('header');
+            const logoContainer = document.querySelector('.logo-container');
+            const nav = document.querySelector('nav');
+            
+            // Crear el botón hamburguesa
+            const mobileMenuBtn = document.createElement('button');
+            mobileMenuBtn.classList.add('mobile-menu-btn');
+            mobileMenuBtn.innerHTML = '☰';
+            
+            // Añadir el botón antes del nav en dispositivos pequeños
+            if (window.innerWidth <= 768) {
+                nav.classList.add('mobile-nav');
+                logoContainer.appendChild(mobileMenuBtn);
+            }
+            
+            // Evento de click para mostrar/ocultar menú
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('show-mobile-menu');
+                this.innerHTML = nav.classList.contains('show-mobile-menu') ? '✕' : '☰';
+            });
+            
+            // Controlar redimensionamiento de ventana
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 768) {
+                    nav.classList.add('mobile-nav');
+                    if (!logoContainer.contains(mobileMenuBtn)) {
+                        logoContainer.appendChild(mobileMenuBtn);
+                    }
+                } else {
+                    nav.classList.remove('mobile-nav', 'show-mobile-menu');
+                    if (logoContainer.contains(mobileMenuBtn)) {
+                        logoContainer.removeChild(mobileMenuBtn);
+                    }
+                    mobileMenuBtn.innerHTML = '☰';
+                }
+            });
+            
+            // Cerrar menú al hacer clic en un enlace
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        nav.classList.remove('show-mobile-menu');
+                        mobileMenuBtn.innerHTML = '☰';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
