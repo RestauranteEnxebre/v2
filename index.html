@@ -14,7 +14,9 @@
         }
         
         body {
-            background-color: #f8f9ff; /* Fondo azul muy claro */
+            background-color: #e4e8ff; /* Fondo azul claro */
+            background-image: linear-gradient(to bottom, #e4e8ff, #f0e6ff); /* Gradiente de azul claro a lila claro */
+            min-height: 100vh;
         }
         
         /* Cabecera */
@@ -99,9 +101,9 @@
             padding: 40px 20px;
         }
         
-        /* Galería de imágenes */
+        /* Galería con carrusel */
         .gallery {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -115,28 +117,88 @@
             text-align: center;
         }
         
-        .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .gallery-item {
-            height: 200px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
+        .carousel-container {
+            position: relative;
+            max-width: 800px;
+            height: 400px;
+            margin: 0 auto;
             overflow: hidden;
+            border-radius: 8px;
         }
         
-        .gallery-item img {
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-slide.active {
+            display: block;
+            animation: fade 1.5s;
+        }
+        
+        .carousel-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s;
+            border-radius: 8px;
         }
         
-        .gallery-item img:hover {
-            transform: scale(1.05);
+        @keyframes fade {
+            from {opacity: 0.4}
+            to {opacity: 1}
+        }
+        
+        .carousel-prev, .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-prev {
+            left: 10px;
+        }
+        
+        .carousel-next {
+            right: 10px;
+        }
+        
+        .carousel-prev:hover, .carousel-next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .carousel-dots {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            border-radius: 50%;
+            background-color: #bbb;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background-color: #8c65c3; /* Lila */
         }
         
         /* Mapa y contacto */
@@ -148,7 +210,7 @@
         }
         
         .map {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -163,7 +225,7 @@
         }
         
         .contact-info {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -202,7 +264,7 @@
         
         /* Reseñas */
         .reviews {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -225,7 +287,7 @@
         .review-item {
             padding: 20px;
             border-radius: 8px;
-            background-color: #f9f9ff; /* Azul muy claro */
+            background-color: rgba(255, 255, 255, 0.7);
             border-left: 4px solid #8c65c3; /* Lila */
         }
         
@@ -415,9 +477,9 @@
                 padding: 20px 15px;
             }
             
-            /* Ajuste de la galería */
-            .gallery-container {
-                grid-template-columns: repeat(2, 1fr);
+            /* Ajuste de carrusel */
+            .carousel-container {
+                height: 300px;
             }
             
             /* Ajuste de contacto */
@@ -451,8 +513,15 @@
                 font-size: 24px;
             }
             
-            .gallery-container {
-                grid-template-columns: 1fr;
+            .carousel-container {
+                height: 220px;
+            }
+            
+            .carousel-prev, .carousel-next {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                padding: 12px;
             }
             
             .reserve-button {
@@ -508,28 +577,39 @@
     
     <!-- Contenido principal -->
     <div class="main-content">
-        <!-- Galería de fotos -->
+        <!-- Galería de fotos con carrusel -->
         <section class="gallery">
             <h2>Nuestra Galería</h2>
-            <div class="gallery-container">
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Plato especial">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="/api/placeholder/800/400" alt="Plato especial">
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Interior del restaurante">
+                <div class="carousel-slide">
+                    <img src="/api/placeholder/800/400" alt="Interior del restaurante">
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Terraza">
+                <div class="carousel-slide">
+                    <img src="/api/placeholder/800/400" alt="Terraza">
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Plato principal">
+                <div class="carousel-slide">
+                    <img src="/api/placeholder/800/400" alt="Plato principal">
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Chef trabajando">
+                <div class="carousel-slide">
+                    <img src="/api/placeholder/800/400" alt="Chef trabajando">
                 </div>
-                <div class="gallery-item">
-                    <img src="/api/placeholder/300/200" alt="Mesa preparada">
+                <div class="carousel-slide">
+                    <img src="/api/placeholder/800/400" alt="Mesa preparada">
                 </div>
+                
+                <button class="carousel-prev">❮</button>
+                <button class="carousel-next">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" data-slide="0"></span>
+                <span class="carousel-dot" data-slide="1"></span>
+                <span class="carousel-dot" data-slide="2"></span>
+                <span class="carousel-dot" data-slide="3"></span>
+                <span class="carousel-dot" data-slide="4"></span>
+                <span class="carousel-dot" data-slide="5"></span>
             </div>
         </section>
         
@@ -604,10 +684,10 @@
         </div>
     </footer>
 
-    <!-- Script para menú hamburguesa -->
+    <!-- Script para menú hamburguesa y carrusel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Crear el botón de hamburguesa y añadirlo al DOM
+            // Menú hamburguesa
             const header = document.querySelector('header');
             const logoContainer = document.querySelector('.logo-container');
             const nav = document.querySelector('nav');
@@ -654,6 +734,55 @@
                     }
                 });
             });
+            
+            // Funcionalidad del carrusel
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            
+            // Función para mostrar una diapositiva específica
+            function showSlide(n) {
+                // Ajustar el índice si sobrepasa los límites
+                if (n >= slides.length) slideIndex = 0;
+                if (n < 0) slideIndex = slides.length - 1;
+                
+                // Ocultar todas las diapositivas y desactivar todos los puntos
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Mostrar la diapositiva actual y activar el punto correspondiente
+                slides[slideIndex].classList.add('active');
+                dots[slideIndex].classList.add('active');
+            }
+            
+            // Evento para el botón anterior
+            prevBtn.addEventListener('click', function() {
+                showSlide(slideIndex -= 1);
+            });
+            
+            // Evento para el botón siguiente
+            nextBtn.addEventListener('click', function() {
+                showSlide(slideIndex += 1);
+            });
+            
+            // Eventos para los puntos
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    slideIndex = index;
+                    showSlide(slideIndex);
+                });
+            });
+            
+            // Cambio automático de diapositivas
+            function autoSlide() {
+                showSlide(slideIndex += 1);
+                setTimeout(autoSlide, 5000); // Cambiar cada 5 segundos
+            }
+            
+            // Iniciar el carrusel
+            autoSlide();
         });
     </script>
 </body>
