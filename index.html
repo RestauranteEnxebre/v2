@@ -341,33 +341,16 @@
         }
         
         .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
         
-        .review-item {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-left: 4px solid #8c65c3; /* Lila */
-        }
-        
-        .review-stars {
-            color: #8c65c3; /* Lila */
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-        
-        .review-text {
-            color: #555;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .review-author {
-            color: #888;
-            font-size: 14px;
+        .google-reviews {
+            width: 100%;
+            min-height: 300px;
+            margin: 0 auto;
         }
         
         /* Footer */
@@ -697,24 +680,14 @@
             </div>
         </section>
         
-        <!-- Reseñas de clientes -->
+        <!-- Reseñas de clientes (ahora con widget de Google) -->
         <section class="reviews" id="reviews">
             <h2>Reseñas de Nuestros Clientes</h2>
             <div class="reviews-container">
-                <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"Una experiencia gastronómica espectacular. La atención fue impecable y los platos deliciosos. Volveremos seguro."</p>
-                    <p class="review-author">- María G.</p>
-                </div>
-                <div class="review-item">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text">"El mejor restaurante de la zona sin duda. Calidad-precio inmejorable y un trato exquisito."</p>
-                    <p class="review-author">- Juan L.</p>
-                </div>
-                <div class="review-item">
-                    <div class="review-stars">★★★★☆</div>
-                    <p class="review-text">"Platos muy bien elaborados y presentados. El postre de chocolate estaba espectacular."</p>
-                    <p class="review-author">- Carmen R.</p>
+                <div class="google-reviews">
+                    <!-- Widget de reseñas de Google -->
+                    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+                    <div class="elfsight-app-review-widget" data-elfsight-google-reviews-place-id="ChIJwcv6auKfagwRRa8XyN2-lLs"></div>
                 </div>
             </div>
         </section>
