@@ -246,20 +246,53 @@
             color: #333;
         }
         
-        .reserve-button {
-            display: inline-block;
-            background-color: #8c65c3; /* Lila */
+        .directions-button {
+            display: block;
+            background-color: #e74c3c; /* Rojo para el botón */
             color: white;
             padding: 12px 25px;
             border-radius: 4px;
             text-decoration: none;
             font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .directions-button:hover {
+            background-color: #c0392b; /* Rojo más oscuro para hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .navigation-icon {
+            margin-right: 5px;
+        }
+        
+        .phone-icon {
+            margin-right: 5px;
+        }
+        
+        .reserve-button {
+            display: block;
+            width: 100%;
+            background-color: #e74c3c; /* Rojo para el botón */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
             margin-top: 20px;
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         .reserve-button:hover {
-            background-color: #6a4a9e; /* Morado más oscuro para hover */
+            background-color: #c0392b; /* Rojo más oscuro para hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
         
         /* Reseñas */
@@ -501,6 +534,12 @@
             .social-icons {
                 justify-content: center;
             }
+            
+            /* Ajustes botones */
+            .directions-button, .reserve-button {
+                padding: 15px 20px;
+                font-size: 16px;
+            }
         }
         
         /* Ajustes adicionales para dispositivos muy pequeños */
@@ -522,14 +561,6 @@
                 height: 40px;
                 font-size: 16px;
                 padding: 12px;
-            }
-            
-            .reserve-button {
-                padding: 15px 20px;
-                display: block;
-                margin: 10px auto;
-                width: 100%;
-                text-align: center;
             }
             
             body {
@@ -613,18 +644,28 @@
             </div>
         </section>
         
-        <!-- Sección de contacto y mapa (movida después de la galería) -->
+        <!-- Sección de contacto y mapa (actualizado con ubicación real y botones) -->
         <section class="contact-section" id="contact">
             <div class="map">
-                <!-- Aquí iría un iframe con Google Maps -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-0.0!3d0.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDAn!5e0!3m2!1sen!2ses!4v1234567890!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
+                <!-- Iframe de Google Maps con tu ubicación específica -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d880.325016422456!2d-16.536858730369914!3d28.04586118212045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDAyJzQ1LjEiTiAxNsKwMzInMTAuNCJX!5e0!3m2!1ses!2ses!4v1740878355358!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+                <!-- Botón "Cómo llegar" que abre Google Maps con direcciones a tu ubicación -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=28.0458612,-16.5368587" 
+                   class="directions-button" target="_blank">
+                    <i class="navigation-icon">➢</i> CÓMO LLEGAR
+                </a>
             </div>
             <div class="contact-info">
                 <h2>Contacto</h2>
-                <p><strong>TELÉFONO:</strong> 636-376-680</p>
-                <p><strong>Dirección:</strong> Avenida magallanes, local 12, 38612 El Médano, Santa Cruz de Tenerife</p>
-                <p><strong>Horario:</strong> Miercoles a Domingo, 10:30 a 22:30</p>
-                <a href="#" class="reserve-button">RESERVA</a>
+                <p><strong>TELÉFONO:</strong> 636376680</p>
+                <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, Provincia</p>
+                <p><strong>Horario:</strong> Lunes a Domingo, 13:00 - 16:00 y 20:00 - 23:30</p>
+                <p><strong>Email:</strong> info@restauranteenxebre.com</p>
+                <!-- Botón de reserva que inicia una llamada telefónica -->
+                <a href="tel:636376680" class="reserve-button">
+                    <i class="phone-icon">📞</i> RESERVAR AHORA
+                </a>
             </div>
         </section>
         
