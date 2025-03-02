@@ -14,12 +14,12 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f9ff; /* Fondo azul muy claro */
         }
         
         /* Cabecera */
         header {
-            background-color: #1a1a1a;
+            background-color: #4b3f72; /* Púrpura oscuro */
             color: white;
             padding: 10px 0;
             position: sticky;
@@ -60,7 +60,7 @@
         }
         
         nav ul li a:hover {
-            color: #6a94c2;
+            color: #a6d8f0; /* Azul claro para hover */
         }
         
         /* Banner con video */
@@ -79,8 +79,8 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            object-fit: contain;
-            background-color: #000; /* Fondo negro para las áreas sin video */
+            object-fit: cover; /* Cambiado a cover para mejor ajuste en móviles */
+            background-color: #1a1a1a;
         }
         
         .banner-overlay {
@@ -89,7 +89,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* Reducida la opacidad para mejor visibilidad */
+            background-color: rgba(75, 63, 114, 0.3); /* Púrpura oscuro con transparencia */
         }
         
         /* Contenido principal */
@@ -97,27 +97,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
-        }
-        
-        .welcome-section {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-            text-align: center;
-        }
-        
-        .welcome-section h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 28px;
-        }
-        
-        .welcome-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
         }
         
         /* Galería de imágenes */
@@ -130,7 +109,7 @@
         }
         
         .gallery h2 {
-            color: #333;
+            color: #4b3f72; /* Púrpura oscuro */
             margin-bottom: 20px;
             font-size: 28px;
             text-align: center;
@@ -158,52 +137,6 @@
         
         .gallery-item img:hover {
             transform: scale(1.05);
-        }
-        
-        /* Reseñas */
-        .reviews {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 40px;
-        }
-        
-        .reviews h2 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 28px;
-            text-align: center;
-        }
-        
-        .reviews-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .review-item {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #6a94c2;
-        }
-        
-        .review-stars {
-            color: #ffb100;
-            margin-bottom: 10px;
-            font-size: 20px;
-        }
-        
-        .review-text {
-            color: #555;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .review-author {
-            color: #888;
-            font-size: 14px;
         }
         
         /* Mapa y contacto */
@@ -237,7 +170,7 @@
         }
         
         .contact-info h2 {
-            color: #333;
+            color: #4b3f72; /* Púrpura oscuro */
             margin-bottom: 20px;
             font-size: 28px;
         }
@@ -253,7 +186,7 @@
         
         .reserve-button {
             display: inline-block;
-            background-color: #e67e22;
+            background-color: #8c65c3; /* Lila */
             color: white;
             padding: 12px 25px;
             border-radius: 4px;
@@ -264,12 +197,58 @@
         }
         
         .reserve-button:hover {
-            background-color: #d35400;
+            background-color: #6a4a9e; /* Morado más oscuro para hover */
+        }
+        
+        /* Reseñas */
+        .reviews {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        
+        .reviews h2 {
+            color: #4b3f72; /* Púrpura oscuro */
+            margin-bottom: 20px;
+            font-size: 28px;
+            text-align: center;
+        }
+        
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .review-item {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9ff; /* Azul muy claro */
+            border-left: 4px solid #8c65c3; /* Lila */
+        }
+        
+        .review-stars {
+            color: #8c65c3; /* Lila */
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        
+        .review-text {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .review-author {
+            color: #888;
+            font-size: 14px;
         }
         
         /* Footer */
         footer {
-            background-color: #333;
+            background-color: #4b3f72; /* Púrpura oscuro */
             color: white;
             padding: 40px 0;
         }
@@ -289,7 +268,7 @@
         }
         
         .footer-section p {
-            color: #bbb;
+            color: #d9cdf9; /* Lila muy claro */
             line-height: 1.6;
         }
         
@@ -302,7 +281,7 @@
         }
         
         .footer-section ul li a {
-            color: #bbb;
+            color: #d9cdf9; /* Lila muy claro */
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -324,13 +303,13 @@
         }
         
         .social-icons a:hover {
-            color: #6a94c2;
+            color: #a6d8f0; /* Azul claro */
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
-            color: #999;
+            color: #d9cdf9; /* Lila muy claro */
             font-size: 14px;
         }
         
@@ -368,7 +347,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background-color: #1a1a1a;
+                background-color: #4b3f72; /* Púrpura oscuro */
                 padding: 10px 0;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.2);
                 z-index: 1000;
@@ -398,12 +377,33 @@
             }
             
             .mobile-nav ul li a:hover {
-                background-color: #333;
+                background-color: #6a4a9e; /* Morado más oscuro */
             }
             
-            /* Ajuste de banner */
+            /* Ajuste de banner para mejorar visibilidad en móviles */
             .banner {
                 height: 300px;
+            }
+            
+            .banner-video {
+                object-position: center; /* Asegura que el centro del video sea visible */
+            }
+            
+            /* Añadir un texto de banner para mejorar visibilidad */
+            .banner::after {
+                content: "RESTAURANTE ENXEBRE";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                font-size: 32px;
+                font-weight: bold;
+                text-align: center;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+                z-index: 10;
+                width: 100%;
+                padding: 0 20px;
             }
             
             /* Ajuste de secciones */
@@ -411,7 +411,7 @@
                 padding: 20px 15px;
             }
             
-            .welcome-section, .gallery, .reviews, .contact-info, .map {
+            .gallery, .reviews, .contact-info, .map {
                 padding: 20px 15px;
             }
             
@@ -444,7 +444,11 @@
         /* Ajustes adicionales para dispositivos muy pequeños */
         @media (max-width: 480px) {
             .banner {
-                height: 200px;
+                height: 250px;
+            }
+            
+            .banner::after {
+                font-size: 24px;
             }
             
             .gallery-container {
@@ -504,14 +508,6 @@
     
     <!-- Contenido principal -->
     <div class="main-content">
-        <!-- Sección de bienvenida -->
-        <section class="welcome-section">
-            <h2>Bienvenidos a Enxebre</h2>
-            <p>Creemos es más que un restaurante: es una experiencia culinaria única con lo mejor de nuestra tierra. Con un enfoque en ingredientes frescos y de alta calidad, ofrecemos platos que desatan el paladar y reflejan la rica historia culinaria de nuestra cocina. Nuestro equipo está dedicado a proporcionar un servicio excepcional, asegurando que cada visita sea inolvidable.</p>
-            <p>Ya sea para una cena íntima o una celebración especial, Enxebre es el lugar perfecto para disfrutar de la buena compañía y la excelente comida.</p>
-            <img src="/api/placeholder/600/400" alt="Interior del restaurante" style="max-width: 100%; border-radius: 8px; margin-top: 20px;">
-        </section>
-        
         <!-- Galería de fotos -->
         <section class="gallery">
             <h2>Nuestra Galería</h2>
@@ -537,6 +533,22 @@
             </div>
         </section>
         
+        <!-- Sección de contacto y mapa (movida después de la galería) -->
+        <section class="contact-section" id="contact">
+            <div class="map">
+                <!-- Aquí iría un iframe con Google Maps -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-0.0!3d0.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDAn!5e0!3m2!1sen!2ses!4v1234567890!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="contact-info">
+                <h2>Contacto</h2>
+                <p><strong>TELÉFONO:</strong> 636376680</p>
+                <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, Provincia</p>
+                <p><strong>Horario:</strong> Lunes a Domingo, 13:00 - 16:00 y 20:00 - 23:30</p>
+                <p><strong>Email:</strong> info@restauranteenxebre.com</p>
+                <a href="#" class="reserve-button">RESERVA</a>
+            </div>
+        </section>
+        
         <!-- Reseñas de clientes -->
         <section class="reviews" id="reviews">
             <h2>Reseñas de Nuestros Clientes</h2>
@@ -556,22 +568,6 @@
                     <p class="review-text">"Platos muy bien elaborados y presentados. El postre de chocolate estaba espectacular."</p>
                     <p class="review-author">- Carmen R.</p>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Sección de contacto y mapa -->
-        <section class="contact-section" id="contact">
-            <div class="map">
-                <!-- Aquí iría un iframe con Google Maps -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.678901234567!2d-0.0!3d0.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDDCsDAn!5e0!3m2!1sen!2ses!4v1234567890!5m2!1sen!2ses" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            <div class="contact-info">
-                <h2>Contacto</h2>
-                <p><strong>TELÉFONO:</strong> 636376680</p>
-                <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, Provincia</p>
-                <p><strong>Horario:</strong> Lunes a Domingo, 13:00 - 16:00 y 20:00 - 23:30</p>
-                <p><strong>Email:</strong> info@restauranteenxebre.com</p>
-                <a href="#" class="reserve-button">RESERVA</a>
             </div>
         </section>
     </div>
