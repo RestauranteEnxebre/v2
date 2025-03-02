@@ -221,6 +221,8 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             height: 400px;
             position: relative;
+            grid-column: 1;
+            grid-row: 1 / span 2;
         }
         
         .map iframe {
@@ -258,6 +260,8 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            grid-column: 2;
+            grid-row: 1 / span 2;
         }
         
         .contact-info h2 {
@@ -273,6 +277,10 @@
         
         .contact-info strong {
             color: #333;
+        }
+        
+        .directions-container {
+            display: none; /* Oculto en escritorio, visible en móvil */
         }
         
         .directions-button {
@@ -515,6 +523,30 @@
                 grid-template-columns: 1fr;
             }
             
+            .map {
+                grid-column: 1;
+                grid-row: 1;
+                height: 300px; /* Más compacto en móvil */
+                padding: 15px;
+            }
+            
+            .directions-container {
+                display: block;
+                grid-column: 1;
+                grid-row: 2;
+                margin-bottom: 20px;
+            }
+            
+            .directions-button {
+                margin-top: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                grid-column: 1;
+                grid-row: 3;
+            }
+            
             /* Ajuste de reseñas */
             .reviews-container {
                 grid-template-columns: 1fr;
@@ -643,7 +675,7 @@
             </div>
         </section>
         
-        <!-- Sección de contacto y mapa (con indicación clara del restaurante) -->
+        <!-- Sección de contacto y mapa (versión mejorada para móvil) -->
         <section class="contact-section" id="contact">
             <div class="map">
                 <!-- Etiqueta del restaurante para mayor claridad -->
@@ -655,18 +687,30 @@
                 <!-- Iframe de Google Maps con tu ubicación específica -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d880.325016422456!2d-16.536858730369914!3d28.04586118212045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjjCsDAyJzQ1LjEiTiAxNsKwMzInMTAuNCJX!5e0!3m2!1ses!2ses!4v1740878355358!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 
-                <!-- Botón "Cómo llegar" que abre Google Maps con direcciones a tu ubicación -->
+                <!-- El botón "Cómo llegar" ya no está aquí en la versión de escritorio -->
+            </div>
+            
+            <!-- Contenedor específico para el botón "Cómo llegar" en móvil -->
+            <div class="directions-container">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=28.0458612,-16.5368587&destination_place_id=RESTAURANTE+ENXEBRE" 
                    class="directions-button" target="_blank">
                     <i class="navigation-icon">➢</i> CÓMO LLEGAR
                 </a>
             </div>
+            
             <div class="contact-info">
                 <h2>Contacto</h2>
                 <p><strong>TELÉFONO:</strong> 636376680</p>
                 <p><strong>Dirección:</strong> Calle Principal 123, Ciudad, Provincia</p>
                 <p><strong>Horario:</strong> Lunes a Domingo, 13:00 - 16:00 y 20:00 - 23:30</p>
                 <p><strong>Email:</strong> info@restauranteenxebre.com</p>
+                
+                <!-- Botón "Cómo llegar" para la versión de escritorio -->
+                <a href="https://www.google.com/maps/dir/?api=1&destination=28.0458612,-16.5368587&destination_place_id=RESTAURANTE+ENXEBRE" 
+                   class="directions-button" target="_blank">
+                    <i class="navigation-icon">➢</i> CÓMO LLEGAR
+                </a>
+                
                 <!-- Botón de reserva que inicia una llamada telefónica -->
                 <a href="tel:636376680" class="reserve-button">
                     <i class="phone-icon">📞</i> RESERVAR AHORA
@@ -678,7 +722,7 @@
         <section class="reviews" id="reviews">
             <h2>Reseñas de Nuestros Clientes</h2>
             <div class="reviews-container">
-                <!-- Widget de reseñas de Google (código proporcionado por ti) -->
+                <!-- Widget de reseñas de Google (código proporcionado por el usuario) -->
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
                 <div class="elfsight-app-67d9d0d3-03b9-40b1-9363-4454c48c8589" data-elfsight-app-lazy></div>
             </div>
