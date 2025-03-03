@@ -66,6 +66,32 @@
             color: #a6d8f0; /* Azul claro para hover */
         }
         
+        /* Selector de idioma */
+        .language-toggle {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 110;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .language-toggle img {
+            width: 20px;
+            height: 14px;
+            margin-right: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-toggle span {
+            color: white;
+            font-size: 14px;
+        }
+        
         /* Página del Menú */
         .menu-page {
             max-width: 1200px;
@@ -352,6 +378,12 @@
             .social-icons {
                 justify-content: center;
             }
+            
+            /* Ajustar selector de idioma */
+            .language-toggle {
+                top: 50px;
+                right: 10px;
+            }
         }
         
         /* Ajustes adicionales para dispositivos muy pequeños */
@@ -400,16 +432,22 @@
     </style>
 </head>
 <body>
+    <!-- Selector de idioma -->
+    <div class="language-toggle" id="language-toggle">
+        <img src="images/spain-flag.png" alt="Español" id="language-flag">
+        <span id="language-text">ES</span>
+    </div>
+    
     <!-- Cabecera -->
     <header>
         <div class="logo-container">
             <a href="index.html" class="logo">ENXEBRE</a>
             <nav>
                 <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="menu.html">MENÚ</a></li>
-                    <li><a href="index.html#reviews">TESTIMONIOS</a></li>
-                    <li><a href="index.html#contact">CONTACTO</a></li>
+                    <li><a href="index.html" data-translate="nav-home">INICIO</a></li>
+                    <li><a href="menu.html" data-translate="nav-menu">MENÚ</a></li>
+                    <li><a href="index.html#reviews" data-translate="nav-reviews">TESTIMONIOS</a></li>
+                    <li><a href="index.html#contact" data-translate="nav-contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
@@ -418,34 +456,34 @@
     <!-- Contenido de la página de menú -->
     <div class="menu-page">
         <div class="menu-header">
-            <h1>Nuestra Carta</h1>
-            <p>Descubre nuestra selección de platos elaborados con productos frescos y de temporada</p>
+            <h1 data-translate="our-menu">Nuestra Carta</h1>
+            <p data-translate="menu-description">Descubre nuestra selección de platos elaborados con productos frescos y de temporada</p>
             
             <!-- Selector de idiomas con banderas -->
             <div class="language-selector">
                 <button class="language-btn active" data-lang="es">
-                    <img src="images/spain-flag.png" alt="Español"> Español
+                    <img src="images/spain-flag.png" alt="Español"> <span data-translate="lang-spanish">Español</span>
                 </button>
                 <button class="language-btn" data-lang="ru">
-                    <img src="images/russian-flag.png" alt="Русский"> Русский
+                    <img src="images/russian-flag.png" alt="Русский"> <span data-translate="lang-russian">Русский</span>
                 </button>
                 <button class="language-btn" data-lang="en">
-                    <img src="images/england-flag.png" alt="English"> English
+                    <img src="images/england-flag.png" alt="English"> <span data-translate="lang-english">English</span>
                 </button>
                 <button class="language-btn" data-lang="de">
-                    <img src="images/germany-flag.png" alt="Alemán"> Deutsch
+                    <img src="images/germany-flag.png" alt="Alemán"> <span data-translate="lang-german">Deutsch</span>
                 </button>
                 <button class="language-btn" data-lang="fr">
-                    <img src="images/france-flag.png" alt="Francés"> Français
+                    <img src="images/france-flag.png" alt="Francés"> <span data-translate="lang-french">Français</span>
                 </button>
                 <button class="language-btn" data-lang="it">
-                    <img src="images/italy-flag.png" alt="Italiano"> Italiano
+                    <img src="images/italy-flag.png" alt="Italiano"> <span data-translate="lang-italian">Italiano</span>
                 </button>
                 <button class="language-btn" data-lang="cn">
-                    <img src="images/china-flag.png" alt="Chino"> 中文
+                    <img src="images/china-flag.png" alt="Chino"> <span data-translate="lang-chinese">中文</span>
                 </button>
                 <button class="language-btn" data-lang="pl">
-                    <img src="images/poland-flag.png" alt="Polaco"> Polski
+                    <img src="images/poland-flag.png" alt="Polaco"> <span data-translate="lang-polish">Polski</span>
                 </button>
             </div>
         </div>
@@ -517,8 +555,8 @@
         </div>
         
         <div class="menu-footer">
-            <p>Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
-            <p>IVA incluido en todos los precios.</p>
+            <p data-translate="fresh-products">Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
+            <p data-translate="vat-included">IVA incluido en todos los precios.</p>
         </div>
     </div>
     
@@ -528,33 +566,131 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Acerca de Enxebre</h3>
-                <p>Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
+                <h3 data-translate="about-enxebre">Acerca de Enxebre</h3>
+                <p data-translate="about-description">Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
             </div>
             <div class="footer-section">
-                <h3>Enlaces rápidos</h3>
+                <h3 data-translate="quick-links">Enlaces rápidos</h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="menu.html">Menú</a></li>
-                    <li><a href="index.html#reviews">Testimonios</a></li>
-                    <li><a href="index.html#contact">Contacto</a></li>
+                    <li><a href="index.html" data-translate="nav-home">Inicio</a></li>
+                    <li><a href="menu.html" data-translate="nav-menu">Menú</a></li>
+                    <li><a href="index.html#reviews" data-translate="nav-reviews">Testimonios</a></li>
+                    <li><a href="index.html#contact" data-translate="nav-contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contacto</h3>
-                <p>Teléfono: 636376680</p>
+                <h3 data-translate="contact">Contacto</h3>
+                <p><span data-translate="phone">Teléfono:</span> 636376680</p>
                 <p>Email: Enxebreelmedano@gmail.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Restaurante Enxebre. Todos los derechos reservados.
+            &copy; 2025 Restaurante Enxebre. <span data-translate="rights-reserved">Todos los derechos reservados.</span>
         </div>
-    </footer>
     
     <!-- Script para cambiar entre idiomas y menú hamburguesa -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Funcionalidad para cambiar entre idiomas
+            // Configuración de idiomas
+            const translations = {
+                'es': {
+                    'nav-home': 'INICIO',
+                    'nav-menu': 'MENÚ',
+                    'nav-reviews': 'TESTIMONIOS',
+                    'nav-contact': 'CONTACTO',
+                    'our-menu': 'Nuestra Carta',
+                    'menu-description': 'Descubre nuestra selección de platos elaborados con productos frescos y de temporada',
+                    'lang-spanish': 'Español',
+                    'lang-english': 'English',
+                    'lang-russian': 'Русский',
+                    'lang-german': 'Deutsch',
+                    'lang-french': 'Français',
+                    'lang-italian': 'Italiano',
+                    'lang-chinese': '中文',
+                    'lang-polish': 'Polski',
+                    'fresh-products': 'Todos nuestros platos están elaborados con productos frescos y de temporada.',
+                    'vat-included': 'IVA incluido en todos los precios.',
+                    'about-enxebre': 'Acerca de Enxebre',
+                    'about-description': 'Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.',
+                    'quick-links': 'Enlaces rápidos',
+                    'contact': 'Contacto',
+                    'phone': 'Teléfono:',
+                    'rights-reserved': 'Todos los derechos reservados.'
+                },
+                'en': {
+                    'nav-home': 'HOME',
+                    'nav-menu': 'MENU',
+                    'nav-reviews': 'REVIEWS',
+                    'nav-contact': 'CONTACT',
+                    'our-menu': 'Our Menu',
+                    'menu-description': 'Discover our selection of dishes made with fresh, seasonal products',
+                    'lang-spanish': 'Spanish',
+                    'lang-english': 'English',
+                    'lang-russian': 'Russian',
+                    'lang-german': 'German',
+                    'lang-french': 'French',
+                    'lang-italian': 'Italian',
+                    'lang-chinese': 'Chinese',
+                    'lang-polish': 'Polish',
+                    'fresh-products': 'All our dishes are prepared with fresh, seasonal products.',
+                    'vat-included': 'VAT included in all prices.',
+                    'about-enxebre': 'About Enxebre',
+                    'about-description': 'Restaurant with over 20 years of experience in hospitality, offering the best of our gastronomy with fresh and local ingredients.',
+                    'quick-links': 'Quick Links',
+                    'contact': 'Contact',
+                    'phone': 'Phone:',
+                    'rights-reserved': 'All rights reserved.'
+                }
+            };
+
+            // Estado actual del idioma
+            let currentLanguage = 'es';
+            
+            // Seleccionar elementos del DOM para el toggle de idioma
+            const languageToggle = document.getElementById('language-toggle');
+            const languageFlag = document.getElementById('language-flag');
+            const languageText = document.getElementById('language-text');
+            
+            // Función para cambiar el idioma
+            function changeLanguage(language) {
+                currentLanguage = language;
+                
+                // Actualizar la bandera y el texto del selector
+                if (language === 'es') {
+                    languageFlag.src = 'images/spain-flag.png';
+                    languageFlag.alt = 'Español';
+                    languageText.textContent = 'ES';
+                } else {
+                    languageFlag.src = 'images/england-flag.png';
+                    languageFlag.alt = 'English';
+                    languageText.textContent = 'EN';
+                }
+                
+                // Aplicar traducciones
+                document.querySelectorAll('[data-translate]').forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[language][key]) {
+                        element.textContent = translations[language][key];
+                    }
+                });
+                
+                // Guardar preferencia en localStorage
+                localStorage.setItem('preferredLanguage', language);
+            }
+            
+            // Evento click para cambiar idioma
+            languageToggle.addEventListener('click', function() {
+                const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
+                changeLanguage(newLanguage);
+            });
+            
+            // Verificar si hay una preferencia de idioma guardada
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage) {
+                changeLanguage(savedLanguage);
+            }
+            
+            // Funcionalidad para cambiar entre idiomas del menú
             const langButtons = document.querySelectorAll('.language-btn');
             const menuSections = document.querySelectorAll('.menu-section');
             
