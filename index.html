@@ -219,24 +219,41 @@
         }
         
         .carousel-dots {
-            text-align: center;
-            margin-top: 15px;
-        }
-        
-        .carousel-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            margin: 0 5px;
-            border-radius: 50%;
-            background-color: #bbb;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .carousel-dot.active {
-            background-color: #8c65c3; /* Lila */
-        }
+    text-align: center;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+    background-color: #8c65c3; /* Lila */
+    transform: scale(1.2);
+}
+
+/* Para dispositivos móviles, hacer los puntos más pequeños */
+@media (max-width: 768px) {
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 1px;
+    }
+}
         
         /* Mapa y contacto */
         .contact-section {
@@ -837,103 +854,119 @@
     <!-- Script para menú hamburguesa y carrusel -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Menú hamburguesa
-            const header = document.querySelector('header');
-            const logoContainer = document.querySelector('.logo-container');
-            const nav = document.querySelector('nav');
-            
-            // Crear el botón hamburguesa
-            const mobileMenuBtn = document.createElement('button');
-            mobileMenuBtn.classList.add('mobile-menu-btn');
-            mobileMenuBtn.innerHTML = '☰';
-            
-            // Añadir el botón antes del nav en dispositivos pequeños
-            if (window.innerWidth <= 768) {
-                nav.classList.add('mobile-nav');
+    // Menú hamburguesa
+    const header = document.querySelector('header');
+    const logoContainer = document.querySelector('.logo-container');
+    const nav = document.querySelector('nav');
+    
+    // Crear el botón hamburguesa
+    const mobileMenuBtn = document.createElement('button');
+    mobileMenuBtn.classList.add('mobile-menu-btn');
+    mobileMenuBtn.innerHTML = '☰';
+    
+    // Añadir el botón antes del nav en dispositivos pequeños
+    if (window.innerWidth <= 768) {
+        nav.classList.add('mobile-nav');
+        logoContainer.appendChild(mobileMenuBtn);
+    }
+    
+    // Evento de click para mostrar/ocultar menú
+    mobileMenuBtn.addEventListener('click', function() {
+        nav.classList.toggle('show-mobile-menu');
+        this.innerHTML = nav.classList.contains('show-mobile-menu') ? '✕' : '☰';
+    });
+    
+    // Controlar redimensionamiento de ventana
+    window.addEventListener('resize', function() {
+        if (window.innerWidth <= 768) {
+            nav.classList.add('mobile-nav');
+            if (!logoContainer.contains(mobileMenuBtn)) {
                 logoContainer.appendChild(mobileMenuBtn);
             }
-            
-            // Evento de click para mostrar/ocultar menú
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.classList.toggle('show-mobile-menu');
-                this.innerHTML = nav.classList.contains('show-mobile-menu') ? '✕' : '☰';
-            });
-            
-            // Controlar redimensionamiento de ventana
-            window.addEventListener('resize', function() {
-                if (window.innerWidth <= 768) {
-                    nav.classList.add('mobile-nav');
-                    if (!logoContainer.contains(mobileMenuBtn)) {
-                        logoContainer.appendChild(mobileMenuBtn);
-                    }
-                } else {
-                    nav.classList.remove('mobile-nav', 'show-mobile-menu');
-                    if (logoContainer.contains(mobileMenuBtn)) {
-                        logoContainer.removeChild(mobileMenuBtn);
-                    }
-                    mobileMenuBtn.innerHTML = '☰';
-                }
-            });
-            
-            // Cerrar menú al hacer clic en un enlace
-            document.querySelectorAll('nav ul li a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        nav.classList.remove('show-mobile-menu');
-                        mobileMenuBtn.innerHTML = '☰';
-                    }
-                });
-            });
-            
-            // Funcionalidad del carrusel
-            let slideIndex = 0;
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.carousel-dot');
-            const prevBtn = document.querySelector('.carousel-prev');
-            const nextBtn = document.querySelector('.carousel-next');
-            
-            // Función para mostrar una diapositiva específica
-            function showSlide(n) {
-                // Ajustar el índice si sobrepasa los límites
-                if (n >= slides.length) slideIndex = 0;
-                if (n < 0) slideIndex = slides.length - 1;
-                
-                // Ocultar todas las diapositivas y desactivar todos los puntos
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                // Mostrar la diapositiva actual y activar el punto correspondiente
-                slides[slideIndex].classList.add('active');
-                dots[slideIndex].classList.add('active');
+        } else {
+            nav.classList.remove('mobile-nav', 'show-mobile-menu');
+            if (logoContainer.contains(mobileMenuBtn)) {
+                logoContainer.removeChild(mobileMenuBtn);
             }
-            
-            // Evento para el botón anterior
-            prevBtn.addEventListener('click', function() {
-                showSlide(slideIndex -= 1);
-            });
-            
-            // Evento para el botón siguiente
-            nextBtn.addEventListener('click', function() {
-                showSlide(slideIndex += 1);
-            });
-            
-            // Eventos para los puntos
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', function() {
-                    slideIndex = index;
-                    showSlide(slideIndex);
-                });
-            });
-            
-            // Cambio automático de diapositivas
-            function autoSlide() {
-                showSlide(slideIndex += 1);
-                setTimeout(autoSlide, 5000); // Cambiar cada 5 segundos
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    });
+    
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                nav.classList.remove('show-mobile-menu');
+                mobileMenuBtn.innerHTML = '☰';
             }
-            
-            // Iniciar el carrusel
-            autoSlide();
         });
+    });
+    
+    // Funcionalidad del carrusel
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    let slideIndex = 0;
+    
+    // Eliminar los puntos existentes
+    dotsContainer.innerHTML = '';
+    
+    // Crear un punto para cada diapositiva
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('carousel-dot');
+        dot.dataset.slide = index;
+        dotsContainer.appendChild(dot);
+        
+        // Añadir event listener a cada punto
+        dot.addEventListener('click', function() {
+            slideIndex = index;
+            showSlide(slideIndex);
+        });
+    });
+    
+    // Obtener la colección actualizada de puntos
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    // Función para mostrar una diapositiva específica
+    function showSlide(n) {
+        // Ajustar el índice si sobrepasa los límites
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+        
+        // Ocultar todas las diapositivas y desactivar todos los puntos
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Mostrar la diapositiva actual y activar el punto correspondiente
+        slides[slideIndex].classList.add('active');
+        dots[slideIndex].classList.add('active');
+    }
+    
+    // Evento para el botón anterior
+    prevBtn.addEventListener('click', function() {
+        showSlide(slideIndex -= 1);
+    });
+    
+    // Evento para el botón siguiente
+    nextBtn.addEventListener('click', function() {
+        showSlide(slideIndex += 1);
+    });
+    
+    // Cambio automático de diapositivas
+    function autoSlide() {
+        showSlide(slideIndex += 1);
+        setTimeout(autoSlide, 5000); // Cambiar cada 5 segundos
+    }
+    
+    // Establecer el primer punto como activo
+    dots[0].classList.add('active');
+    slides[0].classList.add('active');
+    
+    // Iniciar el carrusel
+    autoSlide();
+});
     </script>
 </body>
 </html>
