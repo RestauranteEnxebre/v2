@@ -65,6 +65,32 @@
             color: #a6d8f0; /* Azul claro para hover */
         }
         
+        /* Selector de idioma */
+        .language-toggle {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 110;
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .language-toggle img {
+            width: 20px;
+            height: 14px;
+            margin-right: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .language-toggle span {
+            color: white;
+            font-size: 14px;
+        }
+        
         /* Banner con video */
         .banner {
             position: relative;
@@ -626,6 +652,12 @@
                 padding: 15px 20px;
                 font-size: 16px;
             }
+            
+            /* Ajustar selector de idioma */
+            .language-toggle {
+                top: 50px;
+                right: 10px;
+            }
         }
         
         /* Ajustes adicionales para dispositivos muy pequeños */
@@ -664,16 +696,22 @@
     </style>
 </head>
 <body>
+    <!-- Selector de idioma -->
+    <div class="language-toggle" id="language-toggle">
+        <img src="images/spain-flag.png" alt="Español" id="language-flag">
+        <span id="language-text">ES</span>
+    </div>
+    
     <!-- Cabecera -->
     <header>
         <div class="logo-container">
             <a href="index.html" class="logo">ENXEBRE</a>
             <nav>
                 <ul>
-                    <li><a href="index.html">INICIO</a></li>
-                    <li><a href="menu.html">MENÚ</a></li>
-                    <li><a href="#reviews">TESTIMONIOS</a></li>
-                    <li><a href="#contact">CONTACTO</a></li>
+                    <li><a href="index.html" data-translate="nav-home">INICIO</a></li>
+                    <li><a href="menu.html" data-translate="nav-menu">MENÚ</a></li>
+                    <li><a href="#reviews" data-translate="nav-reviews">TESTIMONIOS</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
@@ -699,7 +737,7 @@
     <!-- Botón para ir al menú -->
     <div class="menu-button-container">
         <a href="menu.html" class="menu-button">
-            <span class="menu-icon">🍽️</span> Ver Nuestra Carta
+            <span class="menu-icon">🍽️</span> <span data-translate="view-menu">Ver Nuestra Carta</span>
         </a>
     </div>
     
@@ -707,7 +745,7 @@
     <div class="main-content">
         <!-- Galería de fotos con carrusel -->
         <section class="gallery">
-            <h2>Fotos de Nuestros Clientes</h2>
+            <h2 data-translate="customer-photos">Fotos de Nuestros Clientes</h2>
             <div class="carousel-container">
                 <div class="carousel-slide active">
                     <img src="images/platos (1).jpg" alt="">
@@ -777,45 +815,43 @@
                 <!-- Etiqueta del restaurante para mayor claridad -->
                 <div class="map-label">
                     <div class="map-label-icon">📍</div>
-                    <div class="map-label-text">Restaurante Enxebre</div>
+                    <div class="map-label-text" data-translate="restaurant-name">Restaurante Enxebre</div>
                 </div>
                 
                 <!-- Iframe de Google Maps con tu ubicación específica -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.300421639027!2d-16.538788823039393!3d28.045850310477697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xc6a9fe26afacbc1%3A0xbb94beddc817af45!2sEnxebre!5e0!3m2!1ses!2ses!4v1740916056661!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                
-                <!-- El botón "Cómo llegar" ya no está aquí en la versión de escritorio -->
             </div>
             
             <!-- Contenedor específico para el botón "Cómo llegar" en móvil -->
             <div class="directions-container">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=28.045846, -16.536214&destination_place_id=ChIJwcv6auKfagwRRa8XyN2-lLs" 
                    class="directions-button" target="_blank">
-                    <i class="navigation-icon">➢</i> CÓMO LLEGAR
+                    <i class="navigation-icon">➢</i> <span data-translate="get-directions">CÓMO LLEGAR</span>
                 </a>
             </div>
             
             <div class="contact-info">
-                <h2>Contacto</h2>
-                <p><strong>TELÉFONO:</strong> 636376680</p>
-                <p><strong>Dirección:</strong> Avenida magallanes, local 12, 38612 El Médano, Santa Cruz de Tenerife, España</p>
-                <p><strong>Horario:</strong> Miercoles a Domingo, 10:30 - 22:30</p>
+                <h2 data-translate="contact">Contacto</h2>
+                <p><strong data-translate="phone">TELÉFONO:</strong> 636376680</p>
+                <p><strong data-translate="address">Dirección:</strong> <span data-translate="address-full">Avenida magallanes, local 12, 38612 El Médano, Santa Cruz de Tenerife, España</span></p>
+                <p><strong data-translate="schedule">Horario:</strong> <span data-translate="schedule-hours">Miercoles a Domingo, 10:30 - 22:30</span></p>
                 
                 <!-- Botón "Cómo llegar" para la versión de escritorio -->
                 <a href="https://www.google.com/maps/dir/?api=1&destination=28.045846, -16.536214&destination_place_id=ChIJwcv6auKfagwRRa8XyN2-lLs" 
                    class="directions-button" target="_blank">
-                    <i class="navigation-icon">➢</i> CÓMO LLEGAR
+                    <i class="navigation-icon">➢</i> <span data-translate="get-directions">CÓMO LLEGAR</span>
                 </a>
                 
                 <!-- Botón de reserva que inicia una llamada telefónica -->
                 <a href="tel:636376680" class="reserve-button">
-                    <i class="phone-icon">📞</i> RESERVAR AHORA
+                    <i class="phone-icon">📞</i> <span data-translate="book-now">RESERVAR AHORA</span>
                 </a>
             </div>
         </section>
         
         <!-- Reseñas de clientes (con el widget de Elfsight) -->
         <section class="reviews" id="reviews">
-            <h2>Reseñas de Nuestros Clientes</h2>
+            <h2 data-translate="customer-reviews">Reseñas de Nuestros Clientes</h2>
             <div class="reviews-container">
                 <!-- Widget de reseñas de Google (código proporcionado por el usuario) -->
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
@@ -828,32 +864,127 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Acerca de Enxebre</h3>
-                <p>Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
+                <h3 data-translate="about-enxebre">Acerca de Enxebre</h3>
+                <p data-translate="about-description">Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
             </div>
             <div class="footer-section">
-                <h3>Enlaces rápidos</h3>
+                <h3 data-translate="quick-links">Enlaces rápidos</h3>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="menu.html">Menú</a></li>
-                    <li><a href="#reviews">Testimonios</a></li>
-                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="index.html" data-translate="nav-home">Inicio</a></li>
+                    <li><a href="menu.html" data-translate="nav-menu">Menú</a></li>
+                    <li><a href="#reviews" data-translate="nav-reviews">Testimonios</a></li>
+                    <li><a href="#contact" data-translate="nav-contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Contacto</h3>
-                <p>Teléfono: 636376680</p>
+                <h3 data-translate="contact">Contacto</h3>
+                <p><span data-translate="phone">Teléfono:</span> 636376680</p>
                 <p>Email: Enxebreelmedano@gmail.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Restaurante Enxebre. Todos los derechos reservados.
+            &copy; 2025 Restaurante Enxebre. <span data-translate="rights-reserved">Todos los derechos reservados.</span>
         </div>
     </footer>
 
-    <!-- Script para menú hamburguesa y carrusel -->
+    <!-- Script para menú hamburguesa, carrusel y traducción -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+    // Configuración de idiomas
+    const translations = {
+        'es': {
+            'nav-home': 'INICIO',
+            'nav-menu': 'MENÚ',
+            'nav-reviews': 'TESTIMONIOS',
+            'nav-contact': 'CONTACTO',
+            'view-menu': 'Ver Nuestra Carta',
+            'customer-photos': 'Fotos de Nuestros Clientes',
+            'restaurant-name': 'Restaurante Enxebre',
+            'get-directions': 'CÓMO LLEGAR',
+            'contact': 'Contacto',
+            'phone': 'TELÉFONO:',
+            'address': 'Dirección:',
+            'address-full': 'Avenida magallanes, local 12, 38612 El Médano, Santa Cruz de Tenerife, España',
+            'schedule': 'Horario:',
+            'schedule-hours': 'Miercoles a Domingo, 10:30 - 22:30',
+            'book-now': 'RESERVAR AHORA',
+            'customer-reviews': 'Reseñas de Nuestros Clientes',
+            'about-enxebre': 'Acerca de Enxebre',
+            'about-description': 'Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.',
+            'quick-links': 'Enlaces rápidos',
+            'rights-reserved': 'Todos los derechos reservados.'
+        },
+        'en': {
+            'nav-home': 'HOME',
+            'nav-menu': 'MENU',
+            'nav-reviews': 'REVIEWS',
+            'nav-contact': 'CONTACT',
+            'view-menu': 'View Our Menu',
+            'customer-photos': 'Photos from Our Customers',
+            'restaurant-name': 'Enxebre Restaurant',
+            'get-directions': 'GET DIRECTIONS',
+            'contact': 'Contact',
+            'phone': 'PHONE:',
+            'address': 'Address:',
+            'address-full': 'Avenida magallanes, local 12, 38612 El Médano, Santa Cruz de Tenerife, Spain',
+            'schedule': 'Opening Hours:',
+            'schedule-hours': 'Wednesday to Sunday, 10:30 AM - 10:30 PM',
+            'book-now': 'BOOK NOW',
+            'customer-reviews': 'Customer Reviews',
+            'about-enxebre': 'About Enxebre',
+            'about-description': 'Restaurant with over 20 years of experience in hospitality, offering the best of our gastronomy with fresh and local ingredients.',
+            'quick-links': 'Quick Links',
+            'rights-reserved': 'All rights reserved.'
+        }
+    };
+
+    // Estado actual del idioma
+    let currentLanguage = 'es';
+    
+    // Seleccionar elementos del DOM para el toggle de idioma
+    const languageToggle = document.getElementById('language-toggle');
+    const languageFlag = document.getElementById('language-flag');
+    const languageText = document.getElementById('language-text');
+    
+    // Función para cambiar el idioma
+    function changeLanguage(language) {
+        currentLanguage = language;
+        
+        // Actualizar la bandera y el texto del selector
+        if (language === 'es') {
+            languageFlag.src = 'images/spain-flag.png';
+            languageFlag.alt = 'Español';
+            languageText.textContent = 'ES';
+        } else {
+            languageFlag.src = 'images/england-flag.png';
+            languageFlag.alt = 'English';
+            languageText.textContent = 'EN';
+        }
+        
+        // Aplicar traducciones
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[language][key]) {
+                element.textContent = translations[language][key];
+            }
+        });
+        
+        // Guardar preferencia en localStorage
+        localStorage.setItem('preferredLanguage', language);
+    }
+    
+    // Evento click para cambiar idioma
+    languageToggle.addEventListener('click', function() {
+        const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
+        changeLanguage(newLanguage);
+    });
+    
+    // Verificar si hay una preferencia de idioma guardada
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        changeLanguage(savedLanguage);
+    }
+    
     // Menú hamburguesa
     const header = document.querySelector('header');
     const logoContainer = document.querySelector('.logo-container');
