@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,14 +15,14 @@
         }
         
         body {
-            background-color: #e4e8ff; /* Fondo azul claro */
-            background-image: linear-gradient(to bottom, #e4e8ff, #f0e6ff); /* Gradiente de azul claro a lila claro */
+            background-color: #e4e8ff;
+            background-image: linear-gradient(to bottom, #e4e8ff, #f0e6ff);
             min-height: 100vh;
         }
         
         /* Cabecera */
         header {
-            background-color: #4b3f72; /* Púrpura oscuro */
+            background-color: #4b3f72;
             color: white;
             padding: 10px 0;
             position: sticky;
@@ -63,10 +64,10 @@
         }
         
         nav ul li a:hover {
-            color: #a6d8f0; /* Azul claro para hover */
+            color: #a6d8f0;
         }
         
-        /* Selector de idioma */
+        /* Selector de idioma principal */
         .language-toggle {
             position: absolute;
             top: 10px;
@@ -102,7 +103,7 @@
         .menu-header {
             text-align: center;
             margin-bottom: 40px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -110,84 +111,225 @@
         
         .menu-header h1 {
             font-size: 36px;
-            color: #4b3f72; /* Púrpura oscuro */
+            color: #4b3f72;
             margin-bottom: 10px;
         }
         
         .menu-header p {
             color: #666;
+            margin-bottom: 20px;
         }
         
+        /* Selector de idiomas para el menú */
         .language-selector {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-bottom: 20px;
         }
         
         .language-btn {
-            padding: 8px 15px;
-            border: none;
-            background-color: #f0f0f0;
-            border-radius: 4px;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            background-color: #f8f9fa;
+            border-radius: 6px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 5px;
-            transition: background-color 0.3s;
+            gap: 8px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
         }
         
-        .language-btn:hover, .language-btn.active {
-            background-color: #e0e0e0;
+        .language-btn:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         
         .language-btn.active {
-            border: 2px solid #8c65c3; /* Lila */
+            background-color: #8c65c3;
+            color: white;
+            border-color: #6a4a9e;
         }
         
         .language-btn img {
-            width: 30px;
-            height: 20px;
+            width: 24px;
+            height: 16px;
             border: 1px solid #ddd;
+            border-radius: 2px;
         }
         
-        /* Contenedor de menús */
-        .menu-sections {
-            margin-top: 40px;
+        /* Indicador de carga para traducción */
+        .translation-loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            background-color: rgba(140, 101, 195, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #8c65c3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Contenido del menú */
+        .menu-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
         }
         
         .menu-section {
-            display: none;
-        }
-        
-        .menu-section.active {
-            display: block;
-        }
-        
-        .menu-image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .menu-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .menu-section h2 {
+            color: #4b3f72;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #8c65c3;
+            padding-bottom: 10px;
         }
         
+        .menu-category {
+            margin-bottom: 30px;
+        }
+        
+        .menu-category h3 {
+            color: #e74c3c;
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            border-left: 4px solid #e74c3c;
+            padding-left: 10px;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            background-color: rgba(140, 101, 195, 0.1);
+        }
+        
+        .item-info {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .item-price {
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 16px;
+            margin-left: 15px;
+            white-space: nowrap;
+        }
+        
+        /* Ocultar el widget de Google Translate por defecto */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+        
+        .goog-te-menu-value {
+            padding: 3px !important;
+        }
+        
+        .goog-te-gadget-simple {
+            background-color: transparent !important;
+            border-left: 1px solid transparent !important;
+            border-top: 1px solid transparent !important;
+            border-bottom: 1px solid transparent !important;
+            border-right: 1px solid transparent !important;
+            font-size: 10pt !important;
+            line-height: 20px !important;
+            padding: 10px 5px !important;
+            font-family: arial !important;
+            background-image: none !important;
+        }
+        
+        body {
+            top: 0px !important;
+        }
+        
+        #google_translate_element {
+            color: transparent;
+        }
+        
+        #google_translate_element a {
+            display: none;
+        }
+        
+        select.goog-te-combo {
+            color: #666;
+            border: 1px solid #ccc;
+            background: white;
+        }
+        
+        .goog-logo-link {
+            display: none !important;
+        }
+        
+        .goog-te-gadget {
+            color: transparent !important;
+        }
+        
+        .goog-te-combo {
+            margin: 4px 0;
+        }
+        
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+        
+        body {
+            top: 0px !important;
+        }
+        
+        /* Footer y otros estilos */
         .menu-footer {
             text-align: center;
             margin-top: 50px;
-            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -196,15 +338,16 @@
         .menu-footer p {
             color: #666;
             font-style: italic;
+            margin-bottom: 10px;
         }
         
         .back-to-top {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            width: 40px;
-            height: 40px;
-            background-color: #8c65c3; /* Lila */
+            width: 50px;
+            height: 50px;
+            background-color: #8c65c3;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -212,16 +355,18 @@
             align-items: center;
             text-decoration: none;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s;
+            transition: all 0.3s ease;
+            font-size: 20px;
         }
         
         .back-to-top:hover {
-            background-color: #6a4a9e; /* Morado más oscuro para hover */
+            background-color: #6a4a9e;
+            transform: translateY(-3px);
         }
         
         /* Footer */
         footer {
-            background-color: #4b3f72; /* Púrpura oscuro */
+            background-color: #4b3f72;
             color: white;
             padding: 40px 0;
             margin-top: 50px;
@@ -242,7 +387,7 @@
         }
         
         .footer-section p {
-            color: #d9cdf9; /* Lila muy claro */
+            color: #d9cdf9;
             line-height: 1.6;
         }
         
@@ -255,7 +400,7 @@
         }
         
         .footer-section ul li a {
-            color: #d9cdf9; /* Lila muy claro */
+            color: #d9cdf9;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -264,30 +409,14 @@
             color: white;
         }
         
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-        
-        .social-icons a:hover {
-            color: #a6d8f0; /* Azul claro */
-        }
-        
         .copyright {
             text-align: center;
             padding-top: 30px;
-            color: #d9cdf9; /* Lila muy claro */
+            color: #d9cdf9;
             font-size: 14px;
         }
         
-        /* Estilos para el menú hamburguesa */
+        /* Estilos para móvil */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -320,7 +449,7 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background-color: #4b3f72; /* Púrpura oscuro */
+                background-color: #4b3f72;
                 padding: 10px 0;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.2);
                 z-index: 1000;
@@ -350,7 +479,7 @@
             }
             
             .mobile-nav ul li a:hover {
-                background-color: #6a4a9e; /* Morado más oscuro */
+                background-color: #6a4a9e;
             }
             
             .menu-page {
@@ -361,13 +490,27 @@
                 font-size: 28px;
             }
             
+            .menu-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-section {
+                padding: 20px;
+            }
+            
             .language-selector {
-                flex-wrap: wrap;
-                gap: 10px;
+                gap: 8px;
             }
             
             .language-btn {
-                margin: 5px;
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+            
+            .language-btn img {
+                width: 20px;
+                height: 14px;
             }
             
             .footer-content {
@@ -375,65 +518,38 @@
                 text-align: center;
             }
             
-            .social-icons {
-                justify-content: center;
-            }
-            
-            /* Ajustar selector de idioma */
             .language-toggle {
-    top: 50px;
-    right: auto;
-    left: 10px;
-}
-        }
-        
-        /* Ajustes adicionales para dispositivos muy pequeños */
-        @media (max-width: 480px) {
-            .menu-header h1 {
-                font-size: 24px;
+                top: 50px;
+                right: auto;
+                left: 10px;
             }
             
-            .menu-page {
-                padding: 15px 10px;
-            }
-            
-            .language-selector {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .language-btn {
-                width: 80%;
-                margin: 5px 0;
-                justify-content: center;
-            }
-            
-            body {
-                font-size: 16px;
-            }
-            
-            h1 {
-                font-size: 28px;
-            }
-            
-            h2 {
-                font-size: 24px;
-            }
-            
-            h3 {
-                font-size: 20px;
-            }
-            
-            .back-to-top {
-                width: 50px;
-                height: 50px;
-                font-size: 20px;
+            .item-price {
+                margin-left: 10px;
             }
         }
     </style>
+    
+    <!-- SCRIPT DE GOOGLE TRANSLATE -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'es',
+                includedLanguages: 'en,ru,de,fr,it,zh-cn,pl',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                multilanguagePage: true,
+                gaTrack: true,
+                gaId: 'UA-XXXXXXX-X'
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-    <!-- Selector de idioma -->
+    <!-- Widget de Google Translate (OCULTO pero necesario) -->
+    <div id="google_translate_element" style="display: none;"></div>
+    
+    <!-- Selector de idioma principal -->
     <div class="language-toggle" id="language-toggle">
         <img src="images/spain-flag.png" alt="Español" id="language-flag">
         <span id="language-text">ES</span>
@@ -445,10 +561,10 @@
             <a href="index.html" class="logo">ENXEBRE</a>
             <nav>
                 <ul>
-                    <li><a href="index.html" data-translate="nav-home">INICIO</a></li>
-                    <li><a href="menu.html" data-translate="nav-menu">MENÚ</a></li>
-                    <li><a href="index.html#reviews" data-translate="nav-reviews">TESTIMONIOS</a></li>
-                    <li><a href="index.html#contact" data-translate="nav-contact">CONTACTO</a></li>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="menu.html">MENÚ</a></li>
+                    <li><a href="index.html#reviews">TESTIMONIOS</a></li>
+                    <li><a href="index.html#contact">CONTACTO</a></li>
                 </ul>
             </nav>
         </div>
@@ -457,107 +573,320 @@
     <!-- Contenido de la página de menú -->
     <div class="menu-page">
         <div class="menu-header">
-            <h1 data-translate="our-menu">Nuestra Carta</h1>
-            <p data-translate="menu-description">Descubre nuestra selección de platos elaborados con productos frescos y de temporada</p>
+            <h1>Nuestra Carta</h1>
+            <p>Descubre nuestra selección de platos elaborados con productos frescos y de temporada</p>
             
-            <!-- Selector de idiomas con banderas -->
+            <!-- Selector de idiomas para el menú -->
             <div class="language-selector">
                 <button class="language-btn active" data-lang="es">
-                    <img src="images/spain-flag.png" alt="Español"> <span data-translate="lang-spanish">Español</span>
-                </button>
-                <button class="language-btn" data-lang="ru">
-                    <img src="images/russian-flag.png" alt="Русский"> <span data-translate="lang-russian">Русский</span>
+                    <img src="images/spain-flag.png" alt="Español"> Español
                 </button>
                 <button class="language-btn" data-lang="en">
-                    <img src="images/england-flag.png" alt="English"> <span data-translate="lang-english">English</span>
+                    <img src="images/england-flag.png" alt="English"> English
+                </button>
+                <button class="language-btn" data-lang="ru">
+                    <img src="images/russian-flag.png" alt="Русский"> Русский
                 </button>
                 <button class="language-btn" data-lang="de">
-                    <img src="images/germany-flag.png" alt="Alemán"> <span data-translate="lang-german">Deutsch</span>
+                    <img src="images/germany-flag.png" alt="Deutsch"> Deutsch
                 </button>
                 <button class="language-btn" data-lang="fr">
-                    <img src="images/france-flag.png" alt="Francés"> <span data-translate="lang-french">Français</span>
+                    <img src="images/france-flag.png" alt="Français"> Français
                 </button>
                 <button class="language-btn" data-lang="it">
-                    <img src="images/italy-flag.png" alt="Italiano"> <span data-translate="lang-italian">Italiano</span>
+                    <img src="images/italy-flag.png" alt="Italiano"> Italiano
                 </button>
-                <button class="language-btn" data-lang="cn">
-                    <img src="images/china-flag.png" alt="Chino"> <span data-translate="lang-chinese">中文</span>
+                <button class="language-btn" data-lang="zh">
+                    <img src="images/china-flag.png" alt="中文"> 中文
                 </button>
                 <button class="language-btn" data-lang="pl">
-                    <img src="images/poland-flag.png" alt="Polaco"> <span data-translate="lang-polish">Polski</span>
+                    <img src="images/poland-flag.png" alt="Polski"> Polski
                 </button>
+            </div>
+            
+            <!-- Indicador de carga -->
+            <div class="translation-loading" id="translation-loading">
+                <div class="spinner"></div>
+                <span>Traduciendo menú...</span>
             </div>
         </div>
         
-        <!-- Secciones del menú (una por idioma) -->
-        <div class="menu-sections">
-            <!-- Menú en Español -->
-            <div class="menu-section active" id="menu-es">
-                <div class="menu-image-container">
-                    <img src="images/menu-espanol-1.jpg" alt="Carta Entrantes Español" class="menu-image">
-                    <img src="images/menu-espanol-2.jpg" alt="Carta Carnes y Pescados Español" class="menu-image">
+        <!-- Contenido del menú -->
+        <div class="menu-content">
+            <!-- ENTRANTES Y ENSALADAS -->
+            <div class="menu-section">
+                <h2>Entrantes y Ensaladas</h2>
+                
+                <div class="menu-category">
+                    <h3>Tapas Frías</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Jamón Ibérico de Bellota</div>
+                            <div class="item-description">Selección de jamón ibérico de bellota con pan tostado y tomate</div>
+                        </div>
+                        <div class="item-price">18.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Tabla de Quesos Canarios</div>
+                            <div class="item-description">Selección de quesos artesanales de las islas con mermelada de higo</div>
+                        </div>
+                        <div class="item-price">16.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Carpaccio de Ternera</div>
+                            <div class="item-description">Finas láminas de ternera con rúcula, parmesano y aceite de trufa</div>
+                        </div>
+                        <div class="item-price">14.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Salmón Ahumado</div>
+                            <div class="item-description">Salmón noruego ahumado con alcaparras, cebolla roja y pan de centeno</div>
+                        </div>
+                        <div class="item-price">13.50€</div>
+                    </div>
                 </div>
-            </div>
-            <!-- Menú en Inglés -->
-            <div class="menu-section" id="menu-en">
-                <div class="menu-image-container">
-                    <img src="images/menu-ingles-1.jpg" alt="Starters" class="menu-image">
-                    <img src="images/menu-ingles-2.jpg" alt="Main Courses" class="menu-image">
+                
+                <div class="menu-category">
+                    <h3>Tapas Calientes</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Pulpo a la Gallega</div>
+                            <div class="item-description">Pulpo cocido con patatas, pimentón dulce y aceite de oliva</div>
+                        </div>
+                        <div class="item-price">15.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Croquetas Caseras</div>
+                            <div class="item-description">Croquetas artesanales de jamón ibérico (6 unidades)</div>
+                        </div>
+                        <div class="item-price">8.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Gambas al Ajillo</div>
+                            <div class="item-description">Gambas salteadas con ajo, guindilla y perejil</div>
+                        </div>
+                        <div class="item-price">12.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Patatas Bravas</div>
+                            <div class="item-description">Patatas fritas con salsa brava picante y alioli</div>
+                        </div>
+                        <div class="item-price">6.50€</div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Menú en Ruso -->
-            <div class="menu-section" id="menu-ru">
-                <div class="menu-image-container">
-                    <img src="images/menu-ruso-1.jpg" alt="Закуски и Салаты" class="menu-image">
-                    <img src="images/menu-ruso-2.jpg" alt="Мясо и Рыба" class="menu-image">
+                
+                <div class="menu-category">
+                    <h3>Ensaladas</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Ensalada Enxebre</div>
+                            <div class="item-description">Mezcla de lechugas, tomate cherry, aguacate, nueces y queso de cabra</div>
+                        </div>
+                        <div class="item-price">11.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Ensalada César</div>
+                            <div class="item-description">Lechuga romana, pollo a la plancha, crutones, parmesano y salsa César</div>
+                        </div>
+                        <div class="item-price">13.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Ensalada de Salmón</div>
+                            <div class="item-description">Salmón ahumado, espinacas frescas, aguacate y vinagreta de mostaza</div>
+                        </div>
+                        <div class="item-price">14.50€</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Menú en Alemán -->
-            <div class="menu-section" id="menu-de">
-                <div class="menu-image-container">
-                    <img src="images/menu-aleman-1.jpg" alt="Vorspeisen" class="menu-image">
-                    <img src="images/menu-aleman-2.jpg" alt="Fleisch und Fisch" class="menu-image">
+            <!-- PLATOS PRINCIPALES -->
+            <div class="menu-section">
+                <h2>Platos Principales</h2>
+                
+                <div class="menu-category">
+                    <h3>Carnes</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Entrecot de Ternera</div>
+                            <div class="item-description">Entrecot a la plancha con patatas panaderas y verduras de temporada</div>
+                        </div>
+                        <div class="item-price">22.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Secreto Ibérico</div>
+                            <div class="item-description">Secreto ibérico con puré de boniato y reducción de Pedro Ximénez</div>
+                        </div>
+                        <div class="item-price">19.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Cordero Lechal</div>
+                            <div class="item-description">Pierna de cordero lechal asada con hierbas aromáticas</div>
+                        </div>
+                        <div class="item-price">24.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Solomillo de Cerdo</div>
+                            <div class="item-description">Solomillo de cerdo con salsa de setas y patatas al horno</div>
+                        </div>
+                        <div class="item-price">17.50€</div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Menú en Francés -->
-            <div class="menu-section" id="menu-fr">
-                <div class="menu-image-container">
-                    <img src="images/menu-frances-1.jpg" alt="Entrées" class="menu-image">
-                    <img src="images/menu-frances-2.jpg" alt="Viandes et Poissons" class="menu-image">
+                
+                <div class="menu-category">
+                    <h3>Pescados y Mariscos</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Lubina a la Sal</div>
+                            <div class="item-description">Lubina fresca cocinada en costra de sal con verduras al vapor</div>
+                        </div>
+                        <div class="item-price">26.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Salmón a la Plancha</div>
+                            <div class="item-description">Salmón noruego con risotto de setas y salsa de eneldo</div>
+                        </div>
+                        <div class="item-price">21.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Dorada al Horno</div>
+                            <div class="item-description">Dorada al horno con patatas, cebolla y pimientos</div>
+                        </div>
+                        <div class="item-price">19.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Paella Mixta</div>
+                            <div class="item-description">Arroz bomba con pollo, conejo, judía verde, garrofón y azafrán (2 personas)</div>
+                        </div>
+                        <div class="item-price">38.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Paella de Mariscos</div>
+                            <div class="item-description">Arroz bomba con langostinos, mejillones, almejas y calamar (2 personas)</div>
+                        </div>
+                        <div class="item-price">42.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Fideuá de Mariscos</div>
+                            <div class="item-description">Fideos con mariscos, alioli y limón (2 personas)</div>
+                        </div>
+                        <div class="item-price">39.00€</div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Menú en Italiano -->
-            <div class="menu-section" id="menu-it">
-                <div class="menu-image-container">
-                    <img src="images/menu-italiano-1.jpg" alt="Antipasti" class="menu-image">
-                    <img src="images/menu-italiano-2.jpg" alt="Carni e Pesce" class="menu-image">
+                
+                <div class="menu-category">
+                    <h3>Postres</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Tarta de Santiago</div>
+                            <div class="item-description">Tarta tradicional gallega de almendra con helado de vainilla</div>
+                        </div>
+                        <div class="item-price">6.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Tiramisu Casero</div>
+                            <div class="item-description">Tiramisu elaborado artesanalmente con café y mascarpone</div>
+                        </div>
+                        <div class="item-price">7.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Flan de Huevo</div>
+                            <div class="item-description">Flan casero de huevo con caramelo líquido</div>
+                        </div>
+                        <div class="item-price">5.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Helado Artesanal</div>
+                            <div class="item-description">3 bolas de helado artesanal (vainilla, chocolate, fresa)</div>
+                        </div>
+                        <div class="item-price">6.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Torrijas Caseras</div>
+                            <div class="item-description">Torrijas tradicionales con canela, miel y helado de vainilla</div>
+                        </div>
+                        <div class="item-price">6.50€</div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Menú en Chino -->
-            <div class="menu-section" id="menu-cn">
-                <div class="menu-image-container">
-                    <img src="images/menu-chino-1.jpg" alt="开胃菜" class="menu-image">
-                    <img src="images/menu-chino-2.jpg" alt="肉类和海鲜" class="menu-image">
-                </div>
-            </div>
-            
-            <!-- Menú en Polaco -->
-            <div class="menu-section" id="menu-pl">
-                <div class="menu-image-container">
-                    <img src="images/menu-polaco-1.jpg" alt="Przystawki" class="menu-image">
-                    <img src="images/menu-polaco-2.jpg" alt="Mięso i Ryby" class="menu-image">
+                
+                <div class="menu-category">
+                    <h3>Bebidas</h3>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Vino de la Casa (Copa)</div>
+                            <div class="item-description">Tinto o Blanco</div>
+                        </div>
+                        <div class="item-price">3.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Vino de la Casa (Botella)</div>
+                            <div class="item-description">Tinto o Blanco</div>
+                        </div>
+                        <div class="item-price">18.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Agua Mineral</div>
+                            <div class="item-description">Con gas o sin gas (500ml)</div>
+                        </div>
+                        <div class="item-price">2.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Cerveza Nacional</div>
+                            <div class="item-description">Estrella Galicia o Mahou (330ml)</div>
+                        </div>
+                        <div class="item-price">3.00€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Refrescos</div>
+                            <div class="item-description">Coca-Cola, Fanta, Sprite, Aquarius</div>
+                        </div>
+                        <div class="item-price">2.80€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Café Solo</div>
+                            <div class="item-description">Café expreso</div>
+                        </div>
+                        <div class="item-price">1.50€</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <div class="item-name">Café con Leche</div>
+                            <div class="item-description">Café expreso con leche vaporizada</div>
+                        </div>
+                        <div class="item-price">1.80€</div>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="menu-footer">
-            <p data-translate="fresh-products">Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
-            <p data-translate="vat-included">IVA incluido en todos los precios.</p>
+            <p>Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
+            <p>IVA incluido en todos los precios.</p>
+            <p>Para información sobre alérgenos, consulte con nuestro personal.</p>
         </div>
     </div>
     
@@ -567,97 +896,113 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h3 data-translate="about-enxebre">Acerca de Enxebre</h3>
-                <p data-translate="about-description">Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
+                <h3>Acerca de Enxebre</h3>
+                <p>Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
             </div>
             <div class="footer-section">
-                <h3 data-translate="quick-links">Enlaces rápidos</h3>
+                <h3>Enlaces rápidos</h3>
                 <ul>
-                    <li><a href="index.html" data-translate="nav-home">Inicio</a></li>
-                    <li><a href="menu.html" data-translate="nav-menu">Menú</a></li>
-                    <li><a href="index.html#reviews" data-translate="nav-reviews">Testimonios</a></li>
-                    <li><a href="index.html#contact" data-translate="nav-contact">Contacto</a></li>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="menu.html">Menú</a></li>
+                    <li><a href="index.html#reviews">Testimonios</a></li>
+                    <li><a href="index.html#contact">Contacto</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3 data-translate="contact">Contacto</h3>
-                <p><span data-translate="phone">Teléfono:</span> 636376680</p>
+                <h3>Contacto</h3>
+                <p>Teléfono: 636376680</p>
                 <p>Email: Enxebreelmedano@gmail.com</p>
             </div>
         </div>
         <div class="copyright">
-            &copy; 2025 Restaurante Enxebre. <span data-translate="rights-reserved">Todos los derechos reservados.</span>
+            &copy; 2025 Restaurante Enxebre. Todos los derechos reservados.
         </div>
-    
-    <!-- Script para cambiar entre idiomas y menú hamburguesa -->
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Configuración de idiomas
-            const translations = {
-                'es': {
-                    'nav-home': 'INICIO',
-                    'nav-menu': 'MENÚ',
-                    'nav-reviews': 'TESTIMONIOS',
-                    'nav-contact': 'CONTACTO',
-                    'our-menu': 'Nuestra Carta',
-                    'menu-description': 'Descubre nuestra selección de platos elaborados con productos frescos y de temporada',
-                    'lang-spanish': 'Español',
-                    'lang-english': 'English',
-                    'lang-russian': 'Русский',
-                    'lang-german': 'Deutsch',
-                    'lang-french': 'Français',
-                    'lang-italian': 'Italiano',
-                    'lang-chinese': '中文',
-                    'lang-polish': 'Polski',
-                    'fresh-products': 'Todos nuestros platos están elaborados con productos frescos y de temporada.',
-                    'vat-included': 'IVA incluido en todos los precios.',
-                    'about-enxebre': 'Acerca de Enxebre',
-                    'about-description': 'Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.',
-                    'quick-links': 'Enlaces rápidos',
-                    'contact': 'Contacto',
-                    'phone': 'Teléfono:',
-                    'rights-reserved': 'Todos los derechos reservados.'
-                },
-                'en': {
-                    'nav-home': 'HOME',
-                    'nav-menu': 'MENU',
-                    'nav-reviews': 'REVIEWS',
-                    'nav-contact': 'CONTACT',
-                    'our-menu': 'Our Menu',
-                    'menu-description': 'Discover our selection of dishes made with fresh, seasonal products',
-                    'lang-spanish': 'Spanish',
-                    'lang-english': 'English',
-                    'lang-russian': 'Russian',
-                    'lang-german': 'German',
-                    'lang-french': 'French',
-                    'lang-italian': 'Italian',
-                    'lang-chinese': 'Chinese',
-                    'lang-polish': 'Polish',
-                    'fresh-products': 'All our dishes are prepared with fresh, seasonal products.',
-                    'vat-included': 'VAT included in all prices.',
-                    'about-enxebre': 'About Enxebre',
-                    'about-description': 'Restaurant with over 20 years of experience in hospitality, offering the best of our gastronomy with fresh and local ingredients.',
-                    'quick-links': 'Quick Links',
-                    'contact': 'Contact',
-                    'phone': 'Phone:',
-                    'rights-reserved': 'All rights reserved.'
-                }
+            // Configuración de idiomas soportados por Google Translate
+            const supportedLanguages = {
+                'es': { name: 'Español', code: 'es' },
+                'en': { name: 'English', code: 'en' },
+                'ru': { name: 'Русский', code: 'ru' },
+                'de': { name: 'Deutsch', code: 'de' },
+                'fr': { name: 'Français', code: 'fr' },
+                'it': { name: 'Italiano', code: 'it' },
+                'zh': { name: '中文', code: 'zh' },
+                'pl': { name: 'Polski', code: 'pl' }
             };
 
-            // Estado actual del idioma
+            // Estado actual
             let currentLanguage = 'es';
             
-            // Seleccionar elementos del DOM para el toggle de idioma
+            // Elementos del DOM
             const languageToggle = document.getElementById('language-toggle');
             const languageFlag = document.getElementById('language-flag');
             const languageText = document.getElementById('language-text');
-            
-            // Función para cambiar el idioma
-            function changeLanguage(language) {
-                currentLanguage = language;
+            const langButtons = document.querySelectorAll('.language-btn');
+            const translationLoading = document.getElementById('translation-loading');
+
+            // Función para traducir página usando Google Translate
+            function translatePage(targetLang) {
+                if (targetLang === 'es') {
+                    // Restaurar página original
+                    const googleTranslateElement = document.querySelector('.goog-te-combo');
+                    if (googleTranslateElement) {
+                        googleTranslateElement.value = 'es';
+                        googleTranslateElement.dispatchEvent(new Event('change'));
+                    }
+                    return;
+                }
+
+                // Mostrar indicador de carga
+                translationLoading.style.display = 'block';
                 
-                // Actualizar la bandera y el texto del selector
-                if (language === 'es') {
+                // Buscar el selector de Google Translate
+                const checkForGoogleTranslate = setInterval(() => {
+                    const googleTranslateElement = document.querySelector('.goog-te-combo');
+                    if (googleTranslateElement) {
+                        clearInterval(checkForGoogleTranslate);
+                        
+                        // Traducir al idioma seleccionado
+                        googleTranslateElement.value = supportedLanguages[targetLang].code;
+                        googleTranslateElement.dispatchEvent(new Event('change'));
+                        
+                        // Ocultar indicador de carga después de un tiempo
+                        setTimeout(() => {
+                            translationLoading.style.display = 'none';
+                        }, 2000);
+                    }
+                }, 100);
+
+                // Timeout de seguridad para ocultar el loading
+                setTimeout(() => {
+                    clearInterval(checkForGoogleTranslate);
+                    translationLoading.style.display = 'none';
+                }, 5000);
+            }
+
+            // Event listeners para botones de idioma del menú
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    
+                    // Cambiar clase activa
+                    langButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Traducir la página
+                    translatePage(lang);
+                });
+            });
+
+            // Event listener para selector de idioma principal
+            languageToggle.addEventListener('click', function() {
+                const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
+                currentLanguage = newLanguage;
+                
+                // Actualizar bandera y texto del selector principal
+                if (newLanguage === 'es') {
                     languageFlag.src = 'images/spain-flag.png';
                     languageFlag.alt = 'Español';
                     languageText.textContent = 'ES';
@@ -667,76 +1012,30 @@
                     languageText.textContent = 'EN';
                 }
                 
-                // Aplicar traducciones
-                document.querySelectorAll('[data-translate]').forEach(element => {
-                    const key = element.getAttribute('data-translate');
-                    if (translations[language][key]) {
-                        element.textContent = translations[language][key];
+                // Activar botón correspondiente
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === newLanguage) {
+                        btn.classList.add('active');
                     }
                 });
                 
-                // Guardar preferencia en localStorage
-                localStorage.setItem('preferredLanguage', language);
-            }
-            
-            // Evento click para cambiar idioma
-            languageToggle.addEventListener('click', function() {
-                const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
-                changeLanguage(newLanguage);
+                // Traducir la página
+                translatePage(newLanguage);
+                
+                // Guardar preferencia
+                localStorage.setItem('preferredLanguage', newLanguage);
             });
-            
-            // Verificar si hay una preferencia de idioma guardada
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage) {
-                changeLanguage(savedLanguage);
-            }
-            
-            // Funcionalidad para cambiar entre idiomas del menú
-            const langButtons = document.querySelectorAll('.language-btn');
-            const menuSections = document.querySelectorAll('.menu-section');
-            
-            langButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const lang = this.dataset.lang;
-                    
-                    // Cambiar clase activa en botones
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Mostrar el menú del idioma seleccionado
-                    menuSections.forEach(section => {
-                        section.classList.remove('active');
-                        if (section.id === `menu-${lang}`) {
-                            section.classList.add('active');
-                        }
-                    });
-                });
-            });
-            
-            // Crear el botón de hamburguesa y añadirlo al DOM
-            const header = document.querySelector('header');
+
+            // Menú hamburguesa para móvil
             const logoContainer = document.querySelector('.logo-container');
             const nav = document.querySelector('nav');
             
-            // Crear el botón hamburguesa
             const mobileMenuBtn = document.createElement('button');
             mobileMenuBtn.classList.add('mobile-menu-btn');
             mobileMenuBtn.innerHTML = '☰';
             
-            // Añadir el botón antes del nav en dispositivos pequeños
-            if (window.innerWidth <= 768) {
-                nav.classList.add('mobile-nav');
-                logoContainer.appendChild(mobileMenuBtn);
-            }
-            
-            // Evento de click para mostrar/ocultar menú
-            mobileMenuBtn.addEventListener('click', function() {
-                nav.classList.toggle('show-mobile-menu');
-                this.innerHTML = nav.classList.contains('show-mobile-menu') ? '✕' : '☰';
-            });
-            
-            // Controlar redimensionamiento de ventana
-            window.addEventListener('resize', function() {
+            function setupMobileMenu() {
                 if (window.innerWidth <= 768) {
                     nav.classList.add('mobile-nav');
                     if (!logoContainer.contains(mobileMenuBtn)) {
@@ -749,9 +1048,17 @@
                     }
                     mobileMenuBtn.innerHTML = '☰';
                 }
+            }
+
+            mobileMenuBtn.addEventListener('click', function() {
+                nav.classList.toggle('show-mobile-menu');
+                this.innerHTML = nav.classList.contains('show-mobile-menu') ? '✕' : '☰';
             });
-            
-            // Cerrar menú al hacer clic en un enlace
+
+            window.addEventListener('resize', setupMobileMenu);
+            setupMobileMenu();
+
+            // Cerrar menú móvil al hacer clic en enlaces
             document.querySelectorAll('nav ul li a').forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {
@@ -760,6 +1067,24 @@
                     }
                 });
             });
+
+            // Botón volver arriba
+            document.querySelector('.back-to-top').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Inicializar con idioma guardado
+            const savedLanguage = localStorage.getItem('preferredLanguage');
+            if (savedLanguage && supportedLanguages[savedLanguage]) {
+                setTimeout(() => {
+                    // Buscar y activar el botón correspondiente
+                    const targetBtn = document.querySelector(`[data-lang="${savedLanguage}"]`);
+                    if (targetBtn) {
+                        targetBtn.click();
+                    }
+                }, 1000); // Esperar a que Google Translate se cargue
+            }
         });
     </script>
 </body>
