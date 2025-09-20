@@ -139,8 +139,8 @@
         .language-btn {
             padding: 10px 15px;
             border: 2px solid #333;
-            background-color: rgba(45, 45, 45, 0.8); /* Gris oscuro */
-            color: #f5f5f5; /* Texto claro */
+            background-color: rgba(45, 45, 45, 0.9); /* Gris oscuro */
+            color: #f5f5f5;
             border-radius: 6px;
             cursor: pointer;
             display: flex;
@@ -155,13 +155,13 @@
             background-color: rgba(212, 175, 55, 0.2);
             border-color: #d4af37;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
         
         .language-btn.active {
-            background-color: #d4af37; /* Dorado */
+            background: linear-gradient(135deg, #d4af37, #b8941f); /* Gradiente dorado */
             color: #000000; /* Texto negro */
-            border-color: #b8941f;
+            border-color: #d4af37;
         }
         
         .language-btn img {
@@ -258,7 +258,7 @@
         
         .item-price {
             font-weight: bold;
-            color: #d4af37; /* Dorado para los precios */
+            color: #d4af37; /* Dorado */
             font-size: 16px;
             margin-left: 15px;
             white-space: nowrap;
@@ -287,21 +287,22 @@
             right: 20px;
             width: 50px;
             height: 50px;
-            background-color: #d4af37; /* Dorado */
+            background: linear-gradient(135deg, #d4af37, #b8941f); /* Gradiente dorado */
             color: #000000; /* Texto negro */
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            box-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
             font-size: 20px;
-            border: 2px solid #b8941f;
+            font-weight: bold;
+            border: 2px solid #d4af37;
         }
         
         .back-to-top:hover {
-            background-color: #b8941f;
+            background: linear-gradient(135deg, #b8941f, #d4af37);
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(212, 175, 55, 0.4);
         }
@@ -946,6 +947,26 @@
             const langButtons = document.querySelectorAll('.language-btn');
             const translationLoading = document.getElementById('translation-loading');
 
+            // Función para limpiar texto traducido
+            function cleanTranslatedText(text) {
+                if (!text) return '';
+                
+                // Eliminar puntos repetidos (más de 3 seguidos)
+                text = text.replace(/\.{3,}/g, '');
+                
+                // Eliminar otros caracteres repetidos extraños
+                text = text.replace(/-{3,}/g, '');
+                text = text.replace(/_{3,}/g, '');
+                
+                // Limpiar espacios extra
+                text = text.trim().replace(/\s+/g, ' ');
+                
+                // Eliminar caracteres especiales no deseados al final
+                text = text.replace(/[\.,-_\s]+$/, '');
+                
+                return text;
+            }
+
             // Función para traducir texto usando API gratuita
             async function translateText(text, targetLang, sourceLang = 'es') {
                 if (targetLang === 'es') return text;
@@ -955,7 +976,9 @@
                     const data = await response.json();
                     
                     if (data.responseStatus === 200) {
-                        return data.responseData.translatedText;
+                        let translatedText = data.responseData.translatedText;
+                        // Limpiar el texto traducido antes de devolverlo
+                        return cleanTranslatedText(translatedText);
                     } else {
                         return text;
                     }
