@@ -171,34 +171,6 @@
             border-radius: 2px;
         }
         
-        /* Indicador de carga para traducción */
-        .translation-loading {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            color: #e0e0e0;
-            background-color: rgba(212, 175, 55, 0.1);
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #d4af37;
-        }
-        
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid #333;
-            border-top: 3px solid #d4af37;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-right: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
         /* Contenido del menú */
         .menu-content {
             display: grid;
@@ -515,9 +487,6 @@
                 <button class="language-btn" data-lang="en">
                     <img src="images/england-flag.png" alt="English"> English
                 </button>
-                <button class="language-btn" data-lang="ru">
-                    <img src="images/russian-flag.png" alt="Русский"> Русский
-                </button>
                 <button class="language-btn" data-lang="de">
                     <img src="images/germany-flag.png" alt="Deutsch"> Deutsch
                 </button>
@@ -527,6 +496,9 @@
                 <button class="language-btn" data-lang="it">
                     <img src="images/italy-flag.png" alt="Italiano"> Italiano
                 </button>
+                <button class="language-btn" data-lang="ru">
+                    <img src="images/russian-flag.png" alt="Русский"> Русский
+                </button>
                 <button class="language-btn" data-lang="zh">
                     <img src="images/china-flag.png" alt="中文"> 中文
                 </button>
@@ -534,283 +506,17 @@
                     <img src="images/poland-flag.png" alt="Polski"> Polski
                 </button>
             </div>
-            
-            <!-- Indicador de carga -->
-            <div class="translation-loading" id="translation-loading">
-                <div class="spinner"></div>
-                <span id="loading-text">Traduciendo menú...</span>
-            </div>
         </div>
         
-        <!-- Contenido del menú -->
-        <div class="menu-content">
-            <!-- ENTRANTES -->
-            <div class="menu-section">
-                <h2 class="section-title">Entrantes</h2>
-                
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Pimientos de Padrón</div>
-                        <div class="item-description">Pimientos de Padrón fritos con sal gorda</div>
-                    </div>
-                    <div class="item-price">7.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Ensaladilla</div>
-                        <div class="item-description">Ensaladilla rusa casera con patata, huevo, zanahoria y mayonesa</div>
-                    </div>
-                    <div class="item-price">7.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Tortilla Española</div>
-                        <div class="item-description">Tortilla de patatas tradicional casera</div>
-                    </div>
-                    <div class="item-price">3.60€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Croquetas de Langostinos</div>
-                        <div class="item-description">Croquetas caseras de langostinos (6 unidades)</div>
-                    </div>
-                    <div class="item-price">10.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Croquetas de Mejillón</div>
-                        <div class="item-description">Croquetas caseras de mejillón (6 unidades)</div>
-                    </div>
-                    <div class="item-price">8.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Croquetas de Setas</div>
-                        <div class="item-description">Croquetas caseras de setas variadas (6 unidades)</div>
-                    </div>
-                    <div class="item-price">8.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Croquetas de Cabrales</div>
-                        <div class="item-description">Croquetas caseras de queso cabrales (6 unidades)</div>
-                    </div>
-                    <div class="item-price">8.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Tosta de Berenjena</div>
-                        <div class="item-description">Tosta con berenjena y queso camenberg</div>
-                    </div>
-                    <div class="item-price">10.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Tosta de Pulpo y Tetilla</div>
-                        <div class="item-description">Tosta con pulpo gallego y queso tetilla fundido</div>
-                    </div>
-                    <div class="item-price">12.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Pastel de Cabracho</div>
-                        <div class="item-description">Pate de pescado</div>
-                    </div>
-                    <div class="item-price">10.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Piquillos Rellenos de Marisco</div>
-                        <div class="item-description">Pimientos del piquillo rellenos de mariscos</div>
-                    </div>
-                    <div class="item-price">12.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Caracoles</div>
-                        <div class="item-description">Caracoles en salsa</div>
-                    </div>
-                    <div class="item-price">11.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Oreja a la Gallega</div>
-                        <div class="item-description">Oreja de cerdo cocida con pimentón y aceite</div>
-                    </div>
-                    <div class="item-price">8.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Pulpo a la Gallega</div>
-                        <div class="item-description">Pulpo cocido con patatas, pimentón picante y aceite de oliva</div>
-                    </div>
-                    <div class="item-price">21.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Queso Plancha con Arándanos</div>
-                        <div class="item-description">Queso a la plancha con mermelada de arándanos</div>
-                    </div>
-                    <div class="item-price">7.50€</div>
-                </div>
-            </div>
-            
-            <!-- ENSALADAS -->
-            <div class="menu-section">
-                <h2 class="section-title">Ensaladas</h2>
-                
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Ensalada César</div>
-                        <div class="item-description">Lechuga romana, pollo a la plancha, crutones, parmesano y salsa César</div>
-                    </div>
-                    <div class="item-price">8.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Ensalada de Queso de Cabra</div>
-                        <div class="item-description">Mezcla de lechugas, queso de cabra, nueces y vinagreta de miel</div>
-                    </div>
-                    <div class="item-price">10.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Ensalada de Salmón y Gambas</div>
-                        <div class="item-description">Ensalada mixta con salmón ahumado, gambas</div>
-                    </div>
-                    <div class="item-price">12.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Ensalada de Atún</div>
-                        <div class="item-description">Ensalada mixta con atún</div>
-                    </div>
-                    <div class="item-price">8.50€</div>
-                </div>
-            </div>
-            
-            <!-- CARNES -->
-            <div class="menu-section">
-                <h2 class="section-title">Carnes</h2>
-                
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Entrecot</div>
-                        <div class="item-description">Entrecot de ternera a la plancha con patatas fritas</div>
-                    </div>
-                    <div class="item-price">14.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Solomillo</div>
-                        <div class="item-description">Solomillo de ternera con patatas fritas</div>
-                    </div>
-                    <div class="item-price">18.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Secreto Ibérico</div>
-                        <div class="item-description">Secreto ibérico a la plancha con patatas fritas</div>
-                    </div>
-                    <div class="item-price">18.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Carrillera Cerdo Ibérico</div>
-                        <div class="item-description">Carrillera de cerdo ibérico estofada en su jugo con patatas fritas</div>
-                    </div>
-                    <div class="item-price">16.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Rabo de Toro</div>
-                        <div class="item-description">Rabo de toro estofado con patatas fritas</div>
-                    </div>
-                    <div class="item-price">18.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Solomillo de Cerdo en Salsa de Setas con patatas fritas</div>
-                        <div class="item-description">Solomillo de cerdo con salsa cremosa de setas</div>
-                    </div>
-                    <div class="item-price">14.00€</div>
-                </div>
-            </div>
-            
-            <!-- PESCADOS Y MARISCOS -->
-            <div class="menu-section">
-                <h2 class="section-title">Pescados y Mariscos</h2>
-                
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Salmón con Batata</div>
-                        <div class="item-description">Salmón a la plancha con puré de batata y pimiento asado</div>
-                    </div>
-                    <div class="item-price">15.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Rodaballo con Batata</div>
-                        <div class="item-description">Rodaballo fresco con puré de batata y pimiento asado</div>
-                    </div>
-                    <div class="item-price">18.50€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Bacalao a la Gallega</div>
-                        <div class="item-description">Bacalao desalado con patatas, pimentón y aceite</div>
-                    </div>
-                    <div class="item-price">15.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Chipirones a la Plancha</div>
-                        <div class="item-description">Chipirones frescos a la plancha con ensalada de col</div>
-                    </div>
-                    <div class="item-price">12.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Chipirones en su Tinta</div>
-                        <div class="item-description">Chipirones guisados en su propia tinta con arroz blanco</div>
-                    </div>
-                    <div class="item-price">14.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Bacalao Frito con Chutney</div>
-                        <div class="item-description">Bacalao frito con chutney de calabaza y arroz basmati</div>
-                    </div>
-                    <div class="item-price">16.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Gambones a la Plancha</div>
-                        <div class="item-description">Gambones a la plancha con sal y limón</div>
-                    </div>
-                    <div class="item-price">15.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Zamburiñas</div>
-                        <div class="item-description">Zamburiñas gallegas a la plancha </div>
-                    </div>
-                    <div class="item-price">14.00€</div>
-                </div>
-                <div class="menu-item">
-                    <div class="item-info">
-                        <div class="item-name">Navajas</div>
-                        <div class="item-description">Navajas a la plancha </div>
-                    </div>
-                    <div class="item-price">14.00€</div>
-                </div>
-            </div>
+        <!-- Contenido del menú (se genera dinámicamente) -->
+        <div class="menu-content" id="menu-content">
+            <!-- El contenido se genera automáticamente con JavaScript -->
         </div>
         
         <div class="menu-footer">
-            <p class="footer-text">Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
-            <p class="footer-text">IGIC incluido en todos los precios.</p>
-            <p class="footer-text">Para información sobre alérgenos, consulte con nuestro personal.</p>
+            <p class="footer-text" id="footer-text-1">Todos nuestros platos están elaborados con productos frescos y de temporada.</p>
+            <p class="footer-text" id="footer-text-2">IGIC incluido en todos los precios.</p>
+            <p class="footer-text" id="footer-text-3">Para información sobre alérgenos, consulte con nuestro personal.</p>
         </div>
     </div>
     
@@ -845,246 +551,543 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Traducciones predefinidas
+            // ===== AQUÍ ES DONDE CAMBIAS LOS PRECIOS - SOLO UNA VEZ =====
+            const menuData = {
+                entrantes: [
+                    {id: 'padron', price: 7.50},
+                    {id: 'ensaladilla', price: 7.50},
+                    {id: 'tortilla', price: 3.60},
+                    {id: 'croquetas_langostinos', price: 10.00},
+                    {id: 'croquetas_mejillon', price: 8.00},
+                    {id: 'croquetas_setas', price: 8.00},
+                    {id: 'croquetas_cabrales', price: 8.00},
+                    {id: 'tosta_berenjena', price: 10.00},
+                    {id: 'tosta_pulpo', price: 12.00},
+                    {id: 'pastel_cabracho', price: 10.50},
+                    {id: 'piquillos', price: 12.00},
+                    {id: 'caracoles', price: 11.50},
+                    {id: 'oreja', price: 8.50},
+                    {id: 'pulpo_gallega', price: 21.00},
+                    {id: 'queso_arandanos', price: 7.50}
+                ],
+                ensaladas: [
+                    {id: 'cesar', price: 8.50},
+                    {id: 'queso_cabra', price: 10.00},
+                    {id: 'salmon_gambas', price: 12.00},
+                    {id: 'atun', price: 8.50}
+                ],
+                carnes: [
+                    {id: 'entrecot', price: 14.00},
+                    {id: 'solomillo', price: 18.00},
+                    {id: 'secreto', price: 18.50},
+                    {id: 'carrillera', price: 16.00},
+                    {id: 'rabo_toro', price: 18.00},
+                    {id: 'solomillo_cerdo', price: 14.00}
+                ],
+                pescados: [
+                    {id: 'salmon_batata', price: 15.00},
+                    {id: 'rodaballo', price: 18.50},
+                    {id: 'bacalao_gallega', price: 15.00},
+                    {id: 'chipirones_plancha', price: 12.00},
+                    {id: 'chipirones_tinta', price: 14.00},
+                    {id: 'bacalao_chutney', price: 16.00},
+                    {id: 'gambones', price: 15.00},
+                    {id: 'zamburinas', price: 14.00},
+                    {id: 'navajas', price: 14.00}
+                ]
+            };
+
+            // ===== TRADUCCIONES DE TODOS LOS PLATOS =====
             const translations = {
-                'es': {
+                es: {
                     'menu-title': 'Nuestra Carta',
                     'menu-description': 'Descubre nuestra selección de platos elaborados con productos frescos y de temporada',
-                    'loading-text': 'Traduciendo menú...',
-                    'section-titles': ['Entrantes', 'Ensaladas', 'Carnes', 'Pescados y Mariscos'],
-                    'footer-texts': [
-                        'Todos nuestros platos están elaborados con productos frescos y de temporada.',
-                        'IVA incluido en todos los precios.',
-                        'Para información sobre alérgenos, consulte con nuestro personal.'
-                    ]
+                    'footer-text-1': 'Todos nuestros platos están elaborados con productos frescos y de temporada.',
+                    'footer-text-2': 'IGIC incluido en todos los precios.',
+                    'footer-text-3': 'Para información sobre alérgenos, consulte con nuestro personal.',
+                    sections: {
+                        entrantes: 'Entrantes',
+                        ensaladas: 'Ensaladas', 
+                        carnes: 'Carnes',
+                        pescados: 'Pescados y Mariscos'
+                    },
+                    dishes: {
+                        padron: {name: 'Pimientos de Padrón', desc: 'Pimientos de Padrón fritos con sal gorda'},
+                        ensaladilla: {name: 'Ensaladilla rusa', desc: 'Ensaladilla rusa casera con patata, huevo, zanahoria y mayonesa'},
+                        tortilla: {name: 'Tortilla Española', desc: 'Tortilla de patatas tradicional casera'},
+                        croquetas_langostinos: {name: 'Croquetas de Langostinos', desc: 'Croquetas caseras de langostinos (6 unidades)'},
+                        croquetas_mejillon: {name: 'Croquetas de Mejillón', desc: 'Croquetas caseras de mejillón (6 unidades)'},
+                        croquetas_setas: {name: 'Croquetas de Setas', desc: 'Croquetas caseras de setas variadas (6 unidades)'},
+                        croquetas_cabrales: {name: 'Croquetas de Cabrales', desc: 'Croquetas caseras de queso cabrales (6 unidades)'},
+                        tosta_berenjena: {name: 'Tosta de Berenjena', desc: 'Tosta con berenjena y queso camenberg'},
+                        tosta_pulpo: {name: 'Tosta de Pulpo y Tetilla', desc: 'Tosta con pulpo gallego y queso tetilla fundido'},
+                        pastel_cabracho: {name: 'Pastel de Cabracho', desc: 'Pate de pescado'},
+                        piquillos: {name: 'Piquillos Rellenos de Marisco', desc: 'Pimientos del piquillo rellenos de mariscos'},
+                        caracoles: {name: 'Caracoles', desc: 'Caracoles en salsa'},
+                        oreja: {name: 'Oreja a la Gallega', desc: 'Oreja de cerdo cocida con pimentón y aceite'},
+                        pulpo_gallega: {name: 'Pulpo a la Gallega', desc: 'Pulpo cocido con patatas, pimentón picante y aceite de oliva'},
+                        queso_arandanos: {name: 'Queso Plancha con Arándanos', desc: 'Queso a la plancha con mermelada de arándanos'},
+                        cesar: {name: 'Ensalada César', desc: 'Lechuga romana, pollo a la plancha, crutones, parmesano y salsa César'},
+                        queso_cabra: {name: 'Ensalada de Queso de Cabra', desc: 'Mezcla de lechugas, queso de cabra, nueces y vinagreta de miel'},
+                        salmon_gambas: {name: 'Ensalada de Salmón y Gambas', desc: 'Ensalada mixta con salmón ahumado, gambas'},
+                        atun: {name: 'Ensalada de Atún', desc: 'Ensalada mixta con atún'},
+                        entrecot: {name: 'Entrecot', desc: 'Entrecot de ternera a la plancha con patatas fritas'},
+                        solomillo: {name: 'Solomillo', desc: 'Solomillo de ternera con patatas fritas'},
+                        secreto: {name: 'Secreto Ibérico', desc: 'Secreto ibérico a la plancha con patatas fritas'},
+                        carrillera: {name: 'Carrillera de Cerdo Ibérico', desc: 'Carrillera de cerdo ibérico estofada en su jugo con patatas fritas'},
+                        rabo_toro: {name: 'Rabo de Toro', desc: 'Rabo de toro estofado con patatas fritas'},
+                        solomillo_cerdo: {name: 'Solomillo de Cerdo en Salsa de Setas', desc: 'Solomillo de cerdo con salsa cremosa de setas y patatas fritas'},
+                        salmon_batata: {name: 'Salmón con Batata', desc: 'Salmón a la plancha con puré de batata y pimiento asado'},
+                        rodaballo: {name: 'Rodaballo con Batata', desc: 'Rodaballo fresco con puré de batata y pimiento asado'},
+                        bacalao_gallega: {name: 'Bacalao a la Gallega', desc: 'Bacalao desalado con patatas, pimentón y aceite'},
+                        chipirones_plancha: {name: 'Chipirones a la Plancha', desc: 'Chipirones frescos a la plancha con ensalada de col'},
+                        chipirones_tinta: {name: 'Chipirones en su Tinta', desc: 'Chipirones guisados en su propia tinta con arroz blanco'},
+                        bacalao_chutney: {name: 'Bacalao Frito con Chutney', desc: 'Bacalao frito con chutney de calabaza y arroz basmati'},
+                        gambones: {name: 'Gambones a la Plancha', desc: 'Gambones a la plancha con sal y limón'},
+                        zamburinas: {name: 'Zamburiñas', desc: 'Zamburiñas gallegas a la plancha'},
+                        navajas: {name: 'Navajas', desc: 'Navajas a la plancha'}
+                    }
                 },
-                'en': {
+                en: {
                     'menu-title': 'Our Menu',
                     'menu-description': 'Discover our selection of dishes made with fresh, seasonal products',
-                    'loading-text': 'Translating menu...',
-                    'section-titles': ['Starters', 'Salads', 'Meats', 'Fish and Seafood'],
-                    'footer-texts': [
-                        'All our dishes are prepared with fresh, seasonal products.',
-                        'VAT included in all prices.',
-                        'For allergen information, please ask our staff.'
-                    ]
+                    'footer-text-1': 'All our dishes are prepared with fresh, seasonal products.',
+                    'footer-text-2': 'VAT included in all prices.',
+                    'footer-text-3': 'For allergen information, please ask our staff.',
+                    sections: {
+                        entrantes: 'Starters',
+                        ensaladas: 'Salads',
+                        carnes: 'Meats',
+                        pescados: 'Fish and Seafood'
+                    },
+                    dishes: {
+                        padron: {name: 'Padron Peppers', desc: 'Fried padron peppers with coarse salt'},
+                        ensaladilla: {name: 'Russian Salad', desc: 'Homemade russian salad with potato, egg, carrot and mayonnaise'},
+                        tortilla: {name: 'Spanish Omelette', desc: 'Traditional homemade potato omelette'},
+                        croquetas_langostinos: {name: 'Prawns Croquettes', desc: 'Homemade prawns croquettes (6 units)'},
+                        croquetas_mejillon: {name: 'Mussel Croquettes', desc: 'Homemade mussel croquettes (6 units)'},
+                        croquetas_setas: {name: 'Mushroom Croquettes', desc: 'Homemade mixed mushroom croquettes (6 units)'},
+                        croquetas_cabrales: {name: 'Cabrales Cheese Croquettes', desc: 'Homemade cabrales cheese croquettes (6 units)'},
+                        tosta_berenjena: {name: 'Eggplant Toast', desc: 'Toast with eggplant and camembert cheese'},
+                        tosta_pulpo: {name: 'Octopus and Tetilla Toast', desc: 'Toast with Galician octopus and melted tetilla cheese'},
+                        pastel_cabracho: {name: 'Scorpion Fish Pâté', desc: 'Fish pâté'},
+                        piquillos: {name: 'Seafood Stuffed Piquillo', desc: 'Piquillo peppers stuffed with seafood'},
+                        caracoles: {name: 'Snails', desc: 'Snails in sauce'},
+                        oreja: {name: 'Galician Style Pig Ear', desc: 'Cooked pig ear with paprika and oil'},
+                        pulpo_gallega: {name: 'Galician Style Octopus', desc: 'Cooked octopus with potatoes, spicy paprika and olive oil'},
+                        queso_arandanos: {name: 'Grilled Cheese with Blueberries', desc: 'Grilled cheese with blueberry jam'},
+                        cesar: {name: 'Caesar Salad', desc: 'Romaine lettuce, grilled chicken, croutons, parmesan and Caesar sauce'},
+                        queso_cabra: {name: 'Goat Cheese Salad', desc: 'Mixed lettuce, goat cheese, walnuts and honey vinaigrette'},
+                        salmon_gambas: {name: 'Salmon and Prawns Salad', desc: 'Mixed salad with smoked salmon and prawns'},
+                        atun: {name: 'Tuna Salad', desc: 'Mixed salad with tuna'},
+                        entrecot: {name: 'Ribeye Steak', desc: 'Grilled beef ribeye with french fries'},
+                        solomillo: {name: 'Beef Tenderloin', desc: 'Beef tenderloin with french fries'},
+                        secreto: {name: 'Iberico Secreto', desc: 'Grilled iberico secreto with french fries'},
+                        carrillera: {name: 'Iberico Pork Cheeks', desc: 'Iberico pork cheeks braised in their own juice with french fries'},
+                        rabo_toro: {name: 'Oxtail', desc: 'Braised oxtail with french fries'},
+                        solomillo_cerdo: {name: 'Pork Tenderloin in Mushroom Sauce', desc: 'Pork tenderloin with creamy mushroom sauce and french fries'},
+                        salmon_batata: {name: 'Salmon with Sweet Potato', desc: 'Grilled salmon with sweet potato puree and roasted pepper'},
+                        rodaballo: {name: 'Turbot with Sweet Potato', desc: 'Fresh turbot with sweet potato puree and roasted pepper'},
+                        bacalao_gallega: {name: 'Galician Style Cod', desc: 'Desalted cod with potatoes, paprika and oil'},
+                        chipirones_plancha: {name: 'Grilled Baby Squid', desc: 'Fresh grilled baby squid with cabbage salad'},
+                        chipirones_tinta: {name: 'Baby Squid in Ink', desc: 'Baby squid cooked in their own ink with white rice'},
+                        bacalao_chutney: {name: 'Fried Cod with Chutney', desc: 'Fried cod with pumpkin chutney and basmati rice'},
+                        gambones: {name: 'Grilled King Prawns', desc: 'Grilled king prawns with salt and lemon'},
+                        zamburinas: {name: 'Galician Scallops', desc: 'Grilled Galician scallops'},
+                        navajas: {name: 'Razor Clams', desc: 'Grilled razor clams'}
+                    }
                 },
-                'ru': {
-                    'menu-title': 'Наше Меню',
-                    'menu-description': 'Откройте для себя наш выбор блюд из свежих сезонных продуктов',
-                    'loading-text': 'Переводим меню...',
-                    'section-titles': ['Закуски', 'Салаты', 'Мясо', 'Рыба и Морепродукты'],
-                    'footer-texts': [
-                        'Все наши блюда готовятся из свежих сезонных продуктов.',
-                        'НДС включен во все цены.',
-                        'Информацию об аллергенах уточняйте у персонала.'
-                    ]
-                },
-                'de': {
+                de: {
                     'menu-title': 'Unsere Speisekarte',
                     'menu-description': 'Entdecken Sie unsere Auswahl an Gerichten mit frischen, saisonalen Produkten',
-                    'loading-text': 'Menü wird übersetzt...',
-                    'section-titles': ['Vorspeisen', 'Salate', 'Fleisch', 'Fisch und Meeresfrüchte'],
-                    'footer-texts': [
-                        'Alle unsere Gerichte werden mit frischen, saisonalen Produkten zubereitet.',
-                        'MwSt. in allen Preisen enthalten.',
-                        'Für Allergeninformationen fragen Sie bitte unser Personal.'
-                    ]
+                    'footer-text-1': 'Alle unsere Gerichte werden mit frischen, saisonalen Produkten zubereitet.',
+                    'footer-text-2': 'MwSt. in allen Preisen enthalten.',
+                    'footer-text-3': 'Für Allergeninformationen fragen Sie bitte unser Personal.',
+                    sections: {
+                        entrantes: 'Vorspeisen',
+                        ensaladas: 'Salate',
+                        carnes: 'Fleisch',
+                        pescados: 'Fisch und Meeresfrüchte'
+                    },
+                    dishes: {
+                        padron: {name: 'Padrón-Paprika', desc: 'Gebratene Padrón-Paprika mit grobem Salz'},
+                        ensaladilla: {name: 'Russischer Salat', desc: 'Hausgemachter russischer Salat mit Kartoffeln, Ei, Karotten und Mayonnaise'},
+                        tortilla: {name: 'Spanisches Omelett', desc: 'Traditionelles hausgemachtes Kartoffelomelett'},
+                        croquetas_langostinos: {name: 'Garnelen-Kroketten', desc: 'Hausgemachte Garnelen-Kroketten (6 Stück)'},
+                        croquetas_mejillon: {name: 'Muschel-Kroketten', desc: 'Hausgemachte Muschel-Kroketten (6 Stück)'},
+                        croquetas_setas: {name: 'Pilz-Kroketten', desc: 'Hausgemachte gemischte Pilz-Kroketten (6 Stück)'},
+                        croquetas_cabrales: {name: 'Cabrales-Käse-Kroketten', desc: 'Hausgemachte Cabrales-Käse-Kroketten (6 Stück)'},
+                        tosta_berenjena: {name: 'Auberginen-Toast', desc: 'Toast mit Aubergine und Camembert-Käse'},
+                        tosta_pulpo: {name: 'Oktopus-Tetilla-Toast', desc: 'Toast mit galizischem Oktopus und geschmolzenem Tetilla-Käse'},
+                        pastel_cabracho: {name: 'Rotbarsch-Pastete', desc: 'Fisch-Pastete'},
+                        piquillos: {name: 'Gefüllte Piquillo-Paprika', desc: 'Mit Meeresfrüchten gefüllte Piquillo-Paprika'},
+                        caracoles: {name: 'Schnecken', desc: 'Schnecken in Soße'},
+                        oreja: {name: 'Schweineohr auf galizische Art', desc: 'Gekochtes Schweineohr mit Paprika und Öl'},
+                        pulpo_gallega: {name: 'Oktopus auf galizische Art', desc: 'Gekochter Oktopus mit Kartoffeln, scharfem Paprika und Olivenöl'},
+                        queso_arandanos: {name: 'Gegrillter Käse mit Heidelbeeren', desc: 'Gegrillter Käse mit Heidelbeermarmelade'},
+                        cesar: {name: 'Caesar-Salat', desc: 'Römersalat, gegrilltes Hähnchen, Croutons, Parmesan und Caesar-Dressing'},
+                        queso_cabra: {name: 'Ziegenkäse-Salat', desc: 'Gemischter Salat, Ziegenkäse, Walnüsse und Honig-Vinaigrette'},
+                        salmon_gambas: {name: 'Lachs-Garnelen-Salat', desc: 'Gemischter Salat mit geräuchertem Lachs und Garnelen'},
+                        atun: {name: 'Thunfisch-Salat', desc: 'Gemischter Salat mit Thunfisch'},
+                        entrecot: {name: 'Entrecôte', desc: 'Gegrilltes Rindersteak mit Pommes frites'},
+                        solomillo: {name: 'Rinderfilet', desc: 'Rinderfilet mit Pommes frites'},
+                        secreto: {name: 'Ibérico Secreto', desc: 'Gegrilltes Ibérico Secreto mit Pommes frites'},
+                        carrillera: {name: 'Ibérico Schweinebäckchen', desc: 'Ibérico Schweinebäckchen geschmort im eigenen Saft mit Pommes frites'},
+                        rabo_toro: {name: 'Ochsenschwanz', desc: 'Geschmorter Ochsenschwanz mit Pommes frites'},
+                        solomillo_cerdo: {name: 'Schweinefilet in Pilzsoße', desc: 'Schweinefilet mit cremiger Pilzsoße und Pommes frites'},
+                        salmon_batata: {name: 'Lachs mit Süßkartoffel', desc: 'Gegrillter Lachs mit Süßkartoffelpüree und gerösteter Paprika'},
+                        rodaballo: {name: 'Steinbutt mit Süßkartoffel', desc: 'Frischer Steinbutt mit Süßkartoffelpüree und gerösteter Paprika'},
+                        bacalao_gallega: {name: 'Kabeljau auf galizische Art', desc: 'Entsalzener Kabeljau mit Kartoffeln, Paprika und Öl'},
+                        chipirones_plancha: {name: 'Gegrillte Baby-Tintenfische', desc: 'Frische gegrillte Baby-Tintenfische mit Kohlsalat'},
+                        chipirones_tinta: {name: 'Baby-Tintenfische in Tinte', desc: 'Baby-Tintenfische in ihrer eigenen Tinte mit weißem Reis'},
+                        bacalao_chutney: {name: 'Gebratener Kabeljau mit Chutney', desc: 'Gebratener Kabeljau mit Kürbis-Chutney und Basmati-Reis'},
+                        gambones: {name: 'Gegrillte Riesengarnelen', desc: 'Gegrillte Riesengarnelen mit Salz und Zitrone'},
+                        zamburinas: {name: 'Galizische Jakobsmuscheln', desc: 'Gegrillte galizische Jakobsmuscheln'},
+                        navajas: {name: 'Scheidenmuscheln', desc: 'Gegrillte Scheidenmuscheln'}
+                    }
                 },
-                'fr': {
+                fr: {
                     'menu-title': 'Notre Carte',
                     'menu-description': 'Découvrez notre sélection de plats élaborés avec des produits frais et de saison',
-                    'loading-text': 'Traduction du menu...',
-                    'section-titles': ['Entrées', 'Salades', 'Viandes', 'Poissons et Fruits de Mer'],
-                    'footer-texts': [
-                        'Tous nos plats sont élaborés avec des produits frais et de saison.',
-                        'TVA incluse dans tous les prix.',
-                        'Pour les informations sur les allergènes, consultez notre personnel.'
-                    ]
+                    'footer-text-1': 'Tous nos plats sont élaborés avec des produits frais et de saison.',
+                    'footer-text-2': 'TVA incluse dans tous les prix.',
+                    'footer-text-3': 'Pour les informations sur les allergènes, consultez notre personnel.',
+                    sections: {
+                        entrantes: 'Entrées',
+                        ensaladas: 'Salades',
+                        carnes: 'Viandes',
+                        pescados: 'Poissons et Fruits de Mer'
+                    },
+                    dishes: {
+                        padron: {name: 'Poivrons de Padrón', desc: 'Poivrons de Padrón frits au gros sel'},
+                        ensaladilla: {name: 'Salade Russe', desc: 'Salade russe maison aux pommes de terre, œuf, carotte et mayonnaise'},
+                        tortilla: {name: 'Tortilla Espagnole', desc: 'Omelette aux pommes de terre traditionnelle maison'},
+                        croquetas_langostinos: {name: 'Croquettes aux Langoustines', desc: 'Croquettes maison aux langoustines (6 unités)'},
+                        croquetas_mejillon: {name: 'Croquettes aux Moules', desc: 'Croquettes maison aux moules (6 unités)'},
+                        croquetas_setas: {name: 'Croquettes aux Champignons', desc: 'Croquettes maison aux champignons variés (6 unités)'},
+                        croquetas_cabrales: {name: 'Croquettes au Cabrales', desc: 'Croquettes maison au fromage cabrales (6 unités)'},
+                        tosta_berenjena: {name: 'Toast aux Aubergines', desc: 'Toast aux aubergines et fromage camembert'},
+                        tosta_pulpo: {name: 'Toast Poulpe et Tetilla', desc: 'Toast au poulpe galicien et fromage tetilla fondu'},
+                        pastel_cabracho: {name: 'Pâté de Rascasse', desc: 'Pâté de poisson'},
+                        piquillos: {name: 'Piquillos Farcis aux Fruits de Mer', desc: 'Poivrons piquillo farcis aux fruits de mer'},
+                        caracoles: {name: 'Escargots', desc: 'Escargots en sauce'},
+                        oreja: {name: 'Oreille à la Galicienne', desc: 'Oreille de porc cuite au paprika et à l\'huile'},
+                        pulpo_gallega: {name: 'Poulpe à la Galicienne', desc: 'Poulpe cuit aux pommes de terre, paprika piquant et huile d\'olive'},
+                        queso_arandanos: {name: 'Fromage Grillé aux Myrtilles', desc: 'Fromage grillé à la confiture de myrtilles'},
+                        cesar: {name: 'Salade César', desc: 'Laitue romaine, poulet grillé, croûtons, parmesan et sauce César'},
+                        queso_cabra: {name: 'Salade au Fromage de Chèvre', desc: 'Mélange de laitues, fromage de chèvre, noix et vinaigrette au miel'},
+                        salmon_gambas: {name: 'Salade Saumon et Crevettes', desc: 'Salade mixte au saumon fumé et crevettes'},
+                        atun: {name: 'Salade au Thon', desc: 'Salade mixte au thon'},
+                        entrecot: {name: 'Entrecôte', desc: 'Entrecôte de bœuf grillée avec frites'},
+                        solomillo: {name: 'Filet de Bœuf', desc: 'Filet de bœuf avec frites'},
+                        secreto: {name: 'Secreto Ibérique', desc: 'Secreto ibérique grillé avec frites'},
+                        carrillera: {name: 'Joues de Porc Ibérique', desc: 'Joues de porc ibérique mijotées dans leur jus avec frites'},
+                        rabo_toro: {name: 'Queue de Taureau', desc: 'Queue de taureau mijotée avec frites'},
+                        solomillo_cerdo: {name: 'Filet de Porc aux Champignons', desc: 'Filet de porc à la sauce crémeuse aux champignons et frites'},
+                        salmon_batata: {name: 'Saumon à la Patate Douce', desc: 'Saumon grillé avec purée de patate douce et poivron grillé'},
+                        rodaballo: {name: 'Turbot à la Patate Douce', desc: 'Turbot frais avec purée de patate douce et poivron grillé'},
+                        bacalao_gallega: {name: 'Morue à la Galicienne', desc: 'Morue dessalée aux pommes de terre, paprika et huile'},
+                        chipirones_plancha: {name: 'Chipirones Grillés', desc: 'Chipirones frais grillés avec salade de chou'},
+                        chipirones_tinta: {name: 'Chipirones à l\'Encre', desc: 'Chipirones mijotés dans leur propre encre avec riz blanc'},
+                        bacalao_chutney: {name: 'Morue Frite au Chutney', desc: 'Morue frite au chutney de courge et riz basmati'},
+                        gambones: {name: 'Grosses Crevettes Grillées', desc: 'Grosses crevettes grillées au sel et citron'},
+                        zamburinas: {name: 'Coquilles Saint-Jacques Galiciennes', desc: 'Coquilles Saint-Jacques galiciennes grillées'},
+                        navajas: {name: 'Couteaux', desc: 'Couteaux grillés'}
+                    }
                 },
-                'it': {
+                it: {
                     'menu-title': 'La Nostra Carta',
                     'menu-description': 'Scoprite la nostra selezione di piatti preparati con prodotti freschi e di stagione',
-                    'loading-text': 'Traduzione del menu...',
-                    'section-titles': ['Antipasti', 'Insalate', 'Carni', 'Pesce e Frutti di Mare'],
-                    'footer-texts': [
-                        'Tutti i nostri piatti sono preparati con prodotti freschi e di stagione.',
-                        'IVA inclusa in tutti i prezzi.',
-                        'Per informazioni sugli allergeni, consultate il nostro personale.'
-                    ]
+                    'footer-text-1': 'Tutti i nostri piatti sono preparati con prodotti freschi e di stagione.',
+                    'footer-text-2': 'IVA inclusa in tutti i prezzi.',
+                    'footer-text-3': 'Per informazioni sugli allergeni, consultate il nostro personale.',
+                    sections: {
+                        entrantes: 'Antipasti',
+                        ensaladas: 'Insalate',
+                        carnes: 'Carni',
+                        pescados: 'Pesce e Frutti di Mare'
+                    },
+                    dishes: {
+                        padron: {name: 'Peperoni di Padrón', desc: 'Peperoni di Padrón fritti con sale grosso'},
+                        ensaladilla: {name: 'Insalata Russa', desc: 'Insalata russa casalinga con patate, uova, carote e maionese'},
+                        tortilla: {name: 'Tortilla Spagnola', desc: 'Frittata di patate tradizionale casalinga'},
+                        croquetas_langostinos: {name: 'Crocchette di Scampi', desc: 'Crocchette casalinghe di scampi (6 unità)'},
+                        croquetas_mejillon: {name: 'Crocchette di Cozze', desc: 'Crocchette casalinghe di cozze (6 unità)'},
+                        croquetas_setas: {name: 'Crocchette di Funghi', desc: 'Crocchette casalinghe di funghi misti (6 unità)'},
+                        croquetas_cabrales: {name: 'Crocchette di Cabrales', desc: 'Crocchette casalinghe di formaggio cabrales (6 unità)'},
+                        tosta_berenjena: {name: 'Toast di Melanzane', desc: 'Toast con melanzane e formaggio camembert'},
+                        tosta_pulpo: {name: 'Toast Polpo e Tetilla', desc: 'Toast con polpo galiziano e formaggio tetilla fuso'},
+                        pastel_cabracho: {name: 'Paté di Scorfano', desc: 'Paté di pesce'},
+                        piquillos: {name: 'Piquillos Ripieni di Frutti di Mare', desc: 'Peperoni piquillo ripieni di frutti di mare'},
+                        caracoles: {name: 'Lumache', desc: 'Lumache in salsa'},
+                        oreja: {name: 'Orecchio alla Galiziana', desc: 'Orecchio di maiale cotto con paprika e olio'},
+                        pulpo_gallega: {name: 'Polpo alla Galiziana', desc: 'Polpo cotto con patate, paprika piccante e olio d\'oliva'},
+                        queso_arandanos: {name: 'Formaggio alla Griglia con Mirtilli', desc: 'Formaggio grigliato con marmellata di mirtilli'},
+                        cesar: {name: 'Insalata Caesar', desc: 'Lattuga romana, pollo grigliato, crostini, parmigiano e salsa Caesar'},
+                        queso_cabra: {name: 'Insalata di Formaggio di Capra', desc: 'Mix di lattughe, formaggio di capra, noci e vinaigrette al miele'},
+                        salmon_gambas: {name: 'Insalata Salmone e Gamberetti', desc: 'Insalata mista con salmone affumicato e gamberetti'},
+                        atun: {name: 'Insalata di Tonno', desc: 'Insalata mista con tonno'},
+                        entrecot: {name: 'Entrecôte', desc: 'Entrecôte di manzo grigliata con patatine fritte'},
+                        solomillo: {name: 'Filetto di Manzo', desc: 'Filetto di manzo con patatine fritte'},
+                        secreto: {name: 'Secreto Iberico', desc: 'Secreto iberico grigliato con patatine fritte'},
+                        carrillera: {name: 'Guanciali di Maiale Iberico', desc: 'Guanciali di maiale iberico brasati nel loro sugo con patatine fritte'},
+                        rabo_toro: {name: 'Coda di Toro', desc: 'Coda di toro brasata con patatine fritte'},
+                        solomillo_cerdo: {name: 'Filetto di Maiale ai Funghi', desc: 'Filetto di maiale con salsa cremosa ai funghi e patatine fritte'},
+                        salmon_batata: {name: 'Salmone con Patata Dolce', desc: 'Salmone grigliato con purè di patata dolce e peperone arrostito'},
+                        rodaballo: {name: 'Rombo con Patata Dolce', desc: 'Rombo fresco con purè di patata dolce e peperone arrostito'},
+                        bacalao_gallega: {name: 'Baccalà alla Galiziana', desc: 'Baccalà dissalato con patate, paprika e olio'},
+                        chipirones_plancha: {name: 'Calamaretti alla Griglia', desc: 'Calamaretti freschi grigliati con insalata di cavolo'},
+                        chipirones_tinta: {name: 'Calamaretti nel Nero', desc: 'Calamaretti cucinati nel loro inchiostro con riso bianco'},
+                        bacalao_chutney: {name: 'Baccalà Fritto con Chutney', desc: 'Baccalà fritto con chutney di zucca e riso basmati'},
+                        gambones: {name: 'Gamberoni alla Griglia', desc: 'Gamberoni grigliati con sale e limone'},
+                        zamburinas: {name: 'Capesante Galiziane', desc: 'Capesante galiziane grigliate'},
+                        navajas: {name: 'Cannolicchi', desc: 'Cannolicchi grigliati'}
+                    }
                 },
-                'zh': {
+                ru: {
+                    'menu-title': 'Наше Меню',
+                    'menu-description': 'Откройте для себя наш выбор блюд из свежих сезонных продуктов',
+                    'footer-text-1': 'Все наши блюда готовятся из свежих сезонных продуктов.',
+                    'footer-text-2': 'НДС включен во все цены.',
+                    'footer-text-3': 'Информацию об аллергенах уточняйте у персонала.',
+                    sections: {
+                        entrantes: 'Закуски',
+                        ensaladas: 'Салаты',
+                        carnes: 'Мясо',
+                        pescados: 'Рыба и Морепродукты'
+                    },
+                    dishes: {
+                        padron: {name: 'Перцы Падрон', desc: 'Жареные перцы падрон с крупной солью'},
+                        ensaladilla: {name: 'Русский Салат', desc: 'Домашний русский салат с картофелем, яйцом, морковью и майонезом'},
+                        tortilla: {name: 'Испанский Омлет', desc: 'Традиционный домашний картофельный омлет'},
+                        croquetas_langostinos: {name: 'Крокеты с Лангустинами', desc: 'Домашние крокеты с лангустинами (6 штук)'},
+                        croquetas_mejillon: {name: 'Крокеты с Мидиями', desc: 'Домашние крокеты с мидиями (6 штук)'},
+                        croquetas_setas: {name: 'Грибные Крокеты', desc: 'Домашние крокеты со смешанными грибами (6 штук)'},
+                        croquetas_cabrales: {name: 'Крокеты с Кабралес', desc: 'Домашние крокеты с сыром кабралес (6 штук)'},
+                        tosta_berenjena: {name: 'Тост с Баклажаном', desc: 'Тост с баклажаном и сыром камамбер'},
+                        tosta_pulpo: {name: 'Тост с Осьминогом и Тетилья', desc: 'Тост с галисийским осьминогом и расплавленным сыром тетилья'},
+                        pastel_cabracho: {name: 'Паштет из Морского Скорпиона', desc: 'Рыбный паштет'},
+                        piquillos: {name: 'Пикильо с Морепродуктами', desc: 'Перцы пикильо, фаршированные морепродуктами'},
+                        caracoles: {name: 'Улитки', desc: 'Улитки в соусе'},
+                        oreja: {name: 'Свиное Ухо по-Галисийски', desc: 'Вареное свиное ухо с паприкой и маслом'},
+                        pulpo_gallega: {name: 'Осьминог по-Галисийски', desc: 'Вареный осьминог с картофелем, острой паприкой и оливковым маслом'},
+                        queso_arandanos: {name: 'Жареный Сыр с Черникой', desc: 'Жареный сыр с черничным джемом'},
+                        cesar: {name: 'Салат Цезарь', desc: 'Салат ромэн, жареная курица, гренки, пармезан и соус цезарь'},
+                        queso_cabra: {name: 'Салат с Козьим Сыром', desc: 'Смесь салатов, козий сыр, орехи и медовый винегрет'},
+                        salmon_gambas: {name: 'Салат с Лососем и Креветками', desc: 'Смешанный салат с копченым лососем и креветками'},
+                        atun: {name: 'Салат с Тунцом', desc: 'Смешанный салат с тунцом'},
+                        entrecot: {name: 'Антрекот', desc: 'Жареный говяжий антрекот с картофелем фри'},
+                        solomillo: {name: 'Говяжья Вырезка', desc: 'Говяжья вырезка с картофелем фри'},
+                        secreto: {name: 'Секрето Иберико', desc: 'Жареное секрето иберико с картофелем фри'},
+                        carrillera: {name: 'Щечки Иберийской Свинины', desc: 'Тушеные щечки иберийской свинины в собственном соку с картофелем фри'},
+                        rabo_toro: {name: 'Бычий Хвост', desc: 'Тушеный бычий хвост с картофелем фри'},
+                        solomillo_cerdo: {name: 'Свиная Вырезка в Грибном Соусе', desc: 'Свиная вырезка в кремовом грибном соусе с картофелем фри'},
+                        salmon_batata: {name: 'Лосось с Бататом', desc: 'Жареный лосось с пюре из батата и жареным перцем'},
+                        rodaballo: {name: 'Камбала с Бататом', desc: 'Свежая камбала с пюре из батата и жареным перцем'},
+                        bacalao_gallega: {name: 'Треска по-Галисийски', desc: 'Вымоченная треска с картофелем, паприкой и маслом'},
+                        chipirones_plancha: {name: 'Жареные Кальмарчики', desc: 'Свежие жареные кальмарчики с капустным салатом'},
+                        chipirones_tinta: {name: 'Кальмарчики в Чернилах', desc: 'Кальмарчики, тушеные в собственных чернилах с белым рисом'},
+                        bacalao_chutney: {name: 'Жареная Треска с Чатни', desc: 'Жареная треска с тыквенным чатни и рисом басмати'},
+                        gambones: {name: 'Жареные Креветки', desc: 'Жареные крупные креветки с солью и лимоном'},
+                        zamburinas: {name: 'Галисийские Гребешки', desc: 'Жареные галисийские гребешки'},
+                        navajas: {name: 'Морские Черенки', desc: 'Жареные морские черенки'}
+                    }
+                },
+                zh: {
                     'menu-title': '我们的菜单',
                     'menu-description': '发现我们用新鲜时令产品制作的精选菜肴',
-                    'loading-text': '正在翻译菜单...',
-                    'section-titles': ['开胃菜', '沙拉', '肉类', '鱼类和海鲜'],
-                    'footer-texts': [
-                        '我们所有的菜肴都用新鲜的时令产品制作。',
-                        '所有价格均含增值税。',
-                        '过敏原信息请咨询我们的工作人员。'
-                    ]
+                    'footer-text-1': '我们所有的菜肴都用新鲜的时令产品制作。',
+                    'footer-text-2': '所有价格均含增值税。',
+                    'footer-text-3': '过敏原信息请咨询我们的工作人员。',
+                    sections: {
+                        entrantes: '开胃菜',
+                        ensaladas: '沙拉',
+                        carnes: '肉类',
+                        pescados: '鱼类和海鲜'
+                    },
+                    dishes: {
+                        padron: {name: '帕德龙辣椒', desc: '用粗盐炸制的帕德龙辣椒'},
+                        ensaladilla: {name: '俄式沙拉', desc: '自制俄式沙拉配土豆、鸡蛋、胡萝卜和蛋黄酱'},
+                        tortilla: {name: '西班牙煎蛋', desc: '传统自制土豆煎蛋'},
+                        croquetas_langostinos: {name: '挪威海螯虾可乐饼', desc: '自制挪威海螯虾可乐饼（6个）'},
+                        croquetas_mejillon: {name: '贻贝可乐饼', desc: '自制贻贝可乐饼（6个）'},
+                        croquetas_setas: {name: '蘑菇可乐饼', desc: '自制混合蘑菇可乐饼（6个）'},
+                        croquetas_cabrales: {name: '卡布拉莱斯奶酪可乐饼', desc: '自制卡布拉莱斯奶酪可乐饼（6个）'},
+                        tosta_berenjena: {name: '茄子吐司', desc: '茄子和卡芒贝尔奶酪吐司'},
+                        tosta_pulpo: {name: '章鱼特蒂利亚吐司', desc: '加利西亚章鱼和融化特蒂利亚奶酪吐司'},
+                        pastel_cabracho: {name: '蝎子鱼肉酱', desc: '鱼肉酱'},
+                        piquillos: {name: '海鲜酿皮基洛辣椒', desc: '海鲜酿制的皮基洛辣椒'},
+                        caracoles: {name: '蜗牛', desc: '蜗牛配酱汁'},
+                        oreja: {name: '加利西亚式猪耳', desc: '用红椒粉和油煮制的猪耳'},
+                        pulpo_gallega: {name: '加利西亚式章鱼', desc: '煮章鱼配土豆、辣红椒粉和橄榄油'},
+                        queso_arandanos: {name: '蓝莓烤奶酪', desc: '烤奶酪配蓝莓果酱'},
+                        cesar: {name: '凯撒沙拉', desc: '罗马生菜、烤鸡肉、面包丁、帕尔玛干酪和凯撒酱'},
+                        queso_cabra: {name: '山羊奶酪沙拉', desc: '混合生菜、山羊奶酪、核桃和蜂蜜醋汁'},
+                        salmon_gambas: {name: '三文鱼虾沙拉', desc: '混合沙拉配烟熏三文鱼和虾'},
+                        atun: {name: '金枪鱼沙拉', desc: '混合沙拉配金枪鱼'},
+                        entrecot: {name: '肋眼牛排', desc: '烤牛肋眼配薯条'},
+                        solomillo: {name: '牛里脊', desc: '牛里脊配薯条'},
+                        secreto: {name: '伊比利亚秘密部位', desc: '烤伊比利亚秘密部位配薯条'},
+                        carrillera: {name: '伊比利亚猪脸颊肉', desc: '用原汁炖制的伊比利亚猪脸颊肉配薯条'},
+                        rabo_toro: {name: '牛尾', desc: '炖牛尾配薯条'},
+                        solomillo_cerdo: {name: '蘑菇汁猪里脊', desc: '猪里脊配奶油蘑菇汁和薯条'},
+                        salmon_batata: {name: '三文鱼配红薯', desc: '烤三文鱼配红薯泥和烤甜椒'},
+                        rodaballo: {name: '比目鱼配红薯', desc: '新鲜比目鱼配红薯泥和烤甜椒'},
+                        bacalao_gallega: {name: '加利西亚式鳕鱼', desc: '去盐鳕鱼配土豆、红椒粉和油'},
+                        chipirones_plancha: {name: '烤小墨鱼', desc: '新鲜烤小墨鱼配卷心菜沙拉'},
+                        chipirones_tinta: {name: '墨汁小墨鱼', desc: '用自身墨汁炖制的小墨鱼配白米饭'},
+                        bacalao_chutney: {name: '炸鳕鱼配酸辣酱', desc: '炸鳕鱼配南瓜酸辣酱和印度香米'},
+                        gambones: {name: '烤大虾', desc: '烤大虾配盐和柠檬'},
+                        zamburinas: {name: '加利西亚扇贝', desc: '烤加利西亚扇贝'},
+                        navajas: {name: '竹蛏', desc: '烤竹蛏'}
+                    }
                 },
-                'pl': {
+                pl: {
                     'menu-title': 'Nasze Menu',
                     'menu-description': 'Odkryj naszą selekcję dań przygotowanych ze świeżych, sezonowych produktów',
-                    'loading-text': 'Tłumaczenie menu...',
-                    'section-titles': ['Przystawki', 'Sałatki', 'Mięsa', 'Ryby i Owoce Morza'],
-                    'footer-texts': [
-                        'Wszystkie nasze dania są przygotowywane ze świeżych, sezonowych produktów.',
-                        'VAT wliczony we wszystkie ceny.',
-                        'Informacje o alergenach uzyskają Państwo u naszego personelu.'
-                    ]
+                    'footer-text-1': 'Wszystkie nasze dania są przygotowywane ze świeżych, sezonowych produktów.',
+                    'footer-text-2': 'VAT wliczony we wszystkie ceny.',
+                    'footer-text-3': 'Informacje o alergenach uzyskają Państwo u naszego personelu.',
+                    sections: {
+                        entrantes: 'Przystawki',
+                        ensaladas: 'Sałatki',
+                        carnes: 'Mięsa',
+                        pescados: 'Ryby i Owoce Morza'
+                    },
+                    dishes: {
+                        padron: {name: 'Papryka Padrón', desc: 'Smażona papryka padrón z grubą solą'},
+                        ensaladilla: {name: 'Sałatka Rosyjska', desc: 'Domowa sałatka rosyjska z ziemniakami, jajkiem, marchewką i majonezem'},
+                        tortilla: {name: 'Hiszpański Omlet', desc: 'Tradycyjny domowy omlet ziemniaczany'},
+                        croquetas_langostinos: {name: 'Krokiety z Langustynami', desc: 'Domowe krokiety z langustynami (6 sztuk)'},
+                        croquetas_mejillon: {name: 'Krokiety z Małży', desc: 'Domowe krokiety z małży (6 sztuk)'},
+                        croquetas_setas: {name: 'Krokiety Grzybowe', desc: 'Domowe krokiety z mieszanymi grzybami (6 sztuk)'},
+                        croquetas_cabrales: {name: 'Krokiety z Serem Cabrales', desc: 'Domowe krokiety z serem cabrales (6 sztuk)'},
+                        tosta_berenjena: {name: 'Tost z Bakłażanem', desc: 'Tost z bakłażanem i serem camembert'},
+                        tosta_pulpo: {name: 'Tost z Ośmiornicą i Tetilla', desc: 'Tost z galicyjską ośmiornicą i roztopionym serem tetilla'},
+                        pastel_cabracho: {name: 'Pasztet z Skorpieny', desc: 'Pasztet rybny'},
+                        piquillos: {name: 'Piquillo Nadziewane Owocami Morza', desc: 'Papryka piquillo nadziewana owocami morza'},
+                        caracoles: {name: 'Ślimaki', desc: 'Ślimaki w sosie'},
+                        oreja: {name: 'Ucho Wieprzowe po Galicyjsku', desc: 'Gotowane ucho wieprzowe z papryką i olejem'},
+                        pulpo_gallega: {name: 'Ośmiornica po Galicyjsku', desc: 'Gotowana ośmiornica z ziemniakami, ostrą papryką i oliwą z oliwek'},
+                        queso_arandanos: {name: 'Grillowany Ser z Jagodami', desc: 'Grillowany ser z dżemem jagodowym'},
+                        cesar: {name: 'Sałatka Caesar', desc: 'Sałata rzymska, grillowany kurczak, grzanki, parmezan i sos caesar'},
+                        queso_cabra: {name: 'Sałatka z Serem Kozim', desc: 'Mieszanka sałat, ser kozi, orzechy i winegret miodowy'},
+                        salmon_gambas: {name: 'Sałatka z Łososiem i Krewetkami', desc: 'Sałatka mieszana z wędzonym łososiem i krewetkami'},
+                        atun: {name: 'Sałatka z Tuńczykiem', desc: 'Sałatka mieszana z tuńczykiem'},
+                        entrecot: {name: 'Antrykot', desc: 'Grillowany antrykot wołowy z frytkami'},
+                        solomillo: {name: 'Polędwica Wołowa', desc: 'Polędwica wołowa z frytkami'},
+                        secreto: {name: 'Secreto Iberico', desc: 'Grillowane secreto iberico z frytkami'},
+                        carrillera: {name: 'Policzki Wieprzowe Iberico', desc: 'Duszone policzki wieprzowe iberico w sosie własnym z frytkami'},
+                        rabo_toro: {name: 'Ogon Wołowy', desc: 'Duszony ogon wołowy z frytkami'},
+                        solomillo_cerdo: {name: 'Polędwica Wieprzowa w Sosie Grzybowym', desc: 'Polędwica wieprzowa w kremowym sosie grzybowym z frytkami'},
+                        salmon_batata: {name: 'Łosoś z Batatami', desc: 'Grillowany łosoś z purée z batatów i pieczoną papryką'},
+                        rodaballo: {name: 'Turbot z Batatami', desc: 'Świeży turbot z purée z batatów i pieczoną papryką'},
+                        bacalao_gallega: {name: 'Dorsz po Galicyjsku', desc: 'Odsolony dorsz z ziemniakami, papryką i olejem'},
+                        chipirones_plancha: {name: 'Grillowane Mątwy', desc: 'Świeże grillowane mątwy z sałatką z kapusty'},
+                        chipirones_tinta: {name: 'Mątwy w Atramencie', desc: 'Mątwy duszone we własnym atramencie z białym ryżem'},
+                        bacalao_chutney: {name: 'Smażony Dorsz z Chutney', desc: 'Smażony dorsz z chutney z dyni i ryżem basmati'},
+                        gambones: {name: 'Grillowane Krewetki Królewskie', desc: 'Grillowane krewetki królewskie z solą i cytryną'},
+                        zamburinas: {name: 'Przegrzebki Galicyjskie', desc: 'Grillowane przegrzebki galicyjskie'},
+                        navajas: {name: 'Małże Brzytwy', desc: 'Grillowane małże brzytwy'}
+                    }
                 }
             };
 
-            // Estado actual
             let currentLanguage = 'es';
-            
-            // Elementos del DOM
-            const languageToggle = document.getElementById('language-toggle');
-            const languageFlag = document.getElementById('language-flag');
-            const languageText = document.getElementById('language-text');
-            const langButtons = document.querySelectorAll('.language-btn');
-            const translationLoading = document.getElementById('translation-loading');
 
-            // Función para limpiar texto traducido
-            function cleanTranslatedText(text) {
-                if (!text) return '';
+            // Función para generar el menú
+            function generateMenu(lang) {
+                const menuContent = document.getElementById('menu-content');
+                const t = translations[lang];
                 
-                // Eliminar puntos repetidos (más de 3 seguidos)
-                text = text.replace(/\.{3,}/g, '');
+                let html = '';
                 
-                // Eliminar otros caracteres repetidos extraños
-                text = text.replace(/-{3,}/g, '');
-                text = text.replace(/_{3,}/g, '');
+                // Generar cada sección
+                Object.keys(menuData).forEach(sectionKey => {
+                    html += `
+                        <div class="menu-section">
+                            <h2 class="section-title">${t.sections[sectionKey]}</h2>
+                    `;
+                    
+                    // Generar cada plato de la sección
+                    menuData[sectionKey].forEach(dish => {
+                        const dishInfo = t.dishes[dish.id];
+                        html += `
+                            <div class="menu-item">
+                                <div class="item-info">
+                                    <div class="item-name">${dishInfo.name}</div>
+                                    <div class="item-description">${dishInfo.desc}</div>
+                                </div>
+                                <div class="item-price">${dish.price.toFixed(2)}€</div>
+                            </div>
+                        `;
+                    });
+                    
+                    html += '</div>';
+                });
                 
-                // Limpiar espacios extra
-                text = text.trim().replace(/\s+/g, ' ');
-                
-                // Eliminar caracteres especiales no deseados al final
-                text = text.replace(/[\.,-_\s]+$/, '');
-                
-                return text;
+                menuContent.innerHTML = html;
             }
 
-            // Función para traducir texto usando API gratuita
-            async function translateText(text, targetLang, sourceLang = 'es') {
-                if (targetLang === 'es') return text;
+            // Función para cambiar idioma
+            function changeLanguage(lang) {
+                currentLanguage = lang;
                 
-                try {
-                    const response = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`);
-                    const data = await response.json();
-                    
-                    if (data.responseStatus === 200) {
-                        let translatedText = data.responseData.translatedText;
-                        // Limpiar el texto traducido antes de devolverlo
-                        return cleanTranslatedText(translatedText);
-                    } else {
-                        return text;
+                // Actualizar textos de cabecera
+                document.getElementById('menu-title').textContent = translations[lang]['menu-title'];
+                document.getElementById('menu-description').textContent = translations[lang]['menu-description'];
+                
+                // Actualizar textos de footer
+                document.getElementById('footer-text-1').textContent = translations[lang]['footer-text-1'];
+                document.getElementById('footer-text-2').textContent = translations[lang]['footer-text-2'];
+                document.getElementById('footer-text-3').textContent = translations[lang]['footer-text-3'];
+                
+                // Regenerar menú
+                generateMenu(lang);
+                
+                // Actualizar botones activos
+                document.querySelectorAll('.language-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
                     }
-                } catch (error) {
-                    console.error('Error en traducción:', error);
-                    return text;
+                });
+                
+                // Actualizar selector principal
+                const languageFlag = document.getElementById('language-flag');
+                const languageText = document.getElementById('language-text');
+                
+                const flagMap = {
+                    'es': {src: 'images/spain-flag.png', alt: 'Español', text: 'ES'},
+                    'en': {src: 'images/england-flag.png', alt: 'English', text: 'EN'},
+                    'de': {src: 'images/germany-flag.png', alt: 'Deutsch', text: 'DE'},
+                    'fr': {src: 'images/france-flag.png', alt: 'Français', text: 'FR'},
+                    'it': {src: 'images/italy-flag.png', alt: 'Italiano', text: 'IT'},
+                    'ru': {src: 'images/russian-flag.png', alt: 'Русский', text: 'RU'},
+                    'zh': {src: 'images/china-flag.png', alt: '中文', text: 'ZH'},
+                    'pl': {src: 'images/poland-flag.png', alt: 'Polski', text: 'PL'}
+                };
+                
+                if (flagMap[lang]) {
+                    languageFlag.src = flagMap[lang].src;
+                    languageFlag.alt = flagMap[lang].alt;
+                    languageText.textContent = flagMap[lang].text;
                 }
+                
+                localStorage.setItem('preferredLanguage', lang);
             }
 
-            // Función para traducir elementos
-            async function translateElements(targetLang) {
-                if (targetLang === 'es') {
-                    location.reload();
-                    return;
-                }
-
-                translationLoading.style.display = 'block';
-
-                try {
-                    // Traducir título y descripción
-                    const title = document.getElementById('menu-title');
-                    const description = document.getElementById('menu-description');
-                    const loadingText = document.getElementById('loading-text');
-
-                    if (translations[targetLang]) {
-                        title.textContent = translations[targetLang]['menu-title'];
-                        description.textContent = translations[targetLang]['menu-description'];
-                        loadingText.textContent = translations[targetLang]['loading-text'];
-
-                        // Traducir títulos de secciones
-                        const sectionTitles = document.querySelectorAll('.section-title');
-                        sectionTitles.forEach((element, index) => {
-                            if (translations[targetLang]['section-titles'][index]) {
-                                element.textContent = translations[targetLang]['section-titles'][index];
-                            }
-                        });
-
-                        // Traducir textos del footer
-                        const footerTexts = document.querySelectorAll('.footer-text');
-                        footerTexts.forEach((element, index) => {
-                            if (translations[targetLang]['footer-texts'][index]) {
-                                element.textContent = translations[targetLang]['footer-texts'][index];
-                            }
-                        });
-                    }
-
-                    // Traducir nombres y descripciones de platos
-                    const itemNames = document.querySelectorAll('.item-name');
-                    const itemDescriptions = document.querySelectorAll('.item-description');
-
-                    for (const name of itemNames) {
-                        const translatedName = await translateText(name.textContent, targetLang);
-                        name.textContent = translatedName;
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                    }
-
-                    for (const description of itemDescriptions) {
-                        const translatedDesc = await translateText(description.textContent, targetLang);
-                        description.textContent = translatedDesc;
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                    }
-
-                } catch (error) {
-                    console.error('Error en traducción:', error);
-                    alert('Error al traducir el menú. Por favor, inténtelo de nuevo.');
-                } finally {
-                    translationLoading.style.display = 'none';
-                }
-            }
-
-            // Event listeners para botones de idioma del menú
-            langButtons.forEach(button => {
-                button.addEventListener('click', async function() {
-                    const lang = this.dataset.lang;
-                    
-                    langButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    await translateElements(lang);
+            // Event listeners para botones de idioma
+            document.querySelectorAll('.language-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    changeLanguage(this.dataset.lang);
                 });
             });
 
-            // Event listener para selector de idioma principal
-            languageToggle.addEventListener('click', function() {
+            // Event listener para selector principal
+            document.getElementById('language-toggle').addEventListener('click', function() {
                 const newLanguage = currentLanguage === 'es' ? 'en' : 'es';
-                currentLanguage = newLanguage;
-                
-                if (newLanguage === 'es') {
-                    languageFlag.src = 'images/spain-flag.png';
-                    languageFlag.alt = 'Español';
-                    languageText.textContent = 'ES';
-                } else {
-                    languageFlag.src = 'images/england-flag.png';
-                    languageFlag.alt = 'English';
-                    languageText.textContent = 'EN';
-                }
-                
-                langButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.lang === newLanguage) {
-                        btn.classList.add('active');
-                        btn.click();
-                    }
-                });
-                
-                localStorage.setItem('preferredLanguage', newLanguage);
+                changeLanguage(newLanguage);
             });
 
             // Menú hamburguesa para móvil
@@ -1134,16 +1137,9 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Inicializar con idioma guardado
-            const savedLanguage = localStorage.getItem('preferredLanguage');
-            if (savedLanguage && translations[savedLanguage]) {
-                setTimeout(() => {
-                    const targetBtn = document.querySelector(`[data-lang="${savedLanguage}"]`);
-                    if (targetBtn) {
-                        targetBtn.click();
-                    }
-                }, 500);
-            }
+            // Inicializar
+            const savedLanguage = localStorage.getItem('preferredLanguage') || 'es';
+            changeLanguage(savedLanguage);
         });
     </script>
 </body>
