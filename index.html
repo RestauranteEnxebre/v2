@@ -118,12 +118,7 @@
         }
         
         .banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Overlay negro suave */
+            display: none; /* Overlay quitado */
         }
         
         /* Por defecto, mostrar solo el banner de escritorio */
@@ -426,27 +421,176 @@
         
         /* Reseñas */
         .reviews {
-            background-color: rgba(45, 45, 45, 0.9); /* Gris oscuro semi-transparente */
+            background-color: rgba(45, 45, 45, 0.9);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 40px;
             border: 1px solid #333;
         }
-        
+
         .reviews h2 {
-            color: #d4af37; /* Dorado */
-            margin-bottom: 20px;
+            color: #d4af37;
+            margin-bottom: 30px;
             font-size: 28px;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        
+
         .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .review-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .review-card:hover {
+            border-color: #d4af37;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .review-header {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            flex: 1;
+        }
+
+        .reviewer-name {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .review-meta {
+            color: #b0b0b0;
+            font-size: 12px;
+        }
+
+        .review-rating {
+            text-align: right;
+        }
+
+        .stars {
+            color: #d4af37;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .rating-text {
+            color: #e0e0e0;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .review-content {
+            color: #e0e0e0;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .review-translation {
+            color: #b0b0b0;
+            font-size: 13px;
+            margin-top: 8px;
+            font-style: normal;
+            opacity: 0.8;
+        }
+
+        .review-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .detail-item {
+            background-color: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .review-price {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .overall-rating {
+            grid-column: 1 / -1;
+            text-align: center;
+            background-color: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        .rating-summary {
+            margin-bottom: 15px;
+        }
+
+        .rating-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d4af37;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .rating-stars {
+            font-size: 24px;
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .rating-count {
+            color: #e0e0e0;
+            font-size: 14px;
+        }
+
+        .view-all-reviews {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #b8941f);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid #d4af37;
+        }
+
+        .view-all-reviews:hover {
+            background: linear-gradient(135deg, #b8941f, #d4af37);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
         }
         
         /* Footer */
@@ -660,6 +804,34 @@
             /* Ajuste de reseñas */
             .reviews-container {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .review-card {
+                padding: 15px;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .review-rating {
+                text-align: left;
+            }
+            
+            .review-price {
+                position: static;
+                display: inline-block;
+                margin-top: 10px;
+            }
+            
+            .rating-number {
+                font-size: 36px;
+            }
+            
+            .overall-rating {
+                padding: 20px;
             }
             
             /* Ajuste del footer */
@@ -750,8 +922,6 @@
         
         <!-- Imagen para móvil -->
         <img class="banner-image mobile-banner" src="images/banner-enxebre-mobile.jpg" alt="Restaurante Enxebre">
-        
-        <div class="banner-overlay"></div>
     </div>
 
     <!-- Botón para ir al menú -->
@@ -816,8 +986,8 @@
                     <img src="images/platos (16).jpg" alt="">
                 </div>
                 
-                <button class="carousel-prev">❮</button>
-                <button class="carousel-next">❯</button>
+                <button class="carousel-prev">◀</button>
+                <button class="carousel-next">▶</button>
             </div>
             <div class="carousel-dots">
                 <span class="carousel-dot active" data-slide="0"></span>
@@ -869,13 +1039,129 @@
             </div>
         </section>
         
-        <!-- Reseñas de clientes (con el widget de Elfsight) -->
+        <!-- Reseñas de clientes -->
         <section class="reviews" id="reviews">
             <h2 data-translate="customer-reviews">Reseñas de Nuestros Clientes</h2>
             <div class="reviews-container">
-                <!-- Widget de reseñas de Google (código proporcionado por el usuario) -->
-                <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                <div class="elfsight-app-67d9d0d3-03b9-40b1-9363-4454c48c8589" data-elfsight-app-lazy></div>
+                <!-- Reseña 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Diana Tocitu</div>
+                            <div class="review-meta">Hace 5 semanas</div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5/5</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Hemos ido sin reserva y nos dieron mesa enseguida. Todos los platos que hemos pedido deliciosos: pulpo a la gallega, chipirones a la plancha, revuelto de morcilla, solomillo en salsa de champiñones. Un gracias especial a Marcial, el chico que nos atendió, muy amable en aconsejarnos. Volveremos seguro, quedan todavía delicias por probar. Gracias por darnos la posibilidad de probar estos sabores gallegos únicos, aquí en Tenerife 💖"
+                    </div>
+                    <div class="review-price">20-30€</div>
+                </div>
+
+                <!-- Reseña 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">François le gauff</div>
+                            <div class="review-meta">Hace 8 semanas</div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5/5</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Hors du cadre touristique avec une terrasse. Il faut réserver... très bonne cuisine. Service impeccable et serviable."
+                        <div class="review-translation">(Fuera del marco turístico con terraza. Hay que reservar... muy buena cocina. Servicio impecable y servicial.)</div>
+                    </div>
+                    <div class="review-price">20-30€</div>
+                </div>
+
+                <!-- Reseña 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Ángel González</div>
+                            <div class="review-meta">Hace 9 semanas</div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5/5</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "La comida muy buena, en su punto. El servicio muy bien y a un precio bastante asequible. Hay que probarlo."
+                    </div>
+                    <div class="review-details">
+                        <span class="detail-item">Comida: 5/5</span>
+                        <span class="detail-item">Servicio: 5/5</span>
+                        <span class="detail-item">Ambiente: 5/5</span>
+                    </div>
+                    <div class="review-price">10-20€</div>
+                </div>
+
+                <!-- Reseña 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Antonio Patera</div>
+                            <div class="review-meta">Hace 12 semanas</div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5/5</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Ottimo ristorante Galiziano. Ha anche tavoli all'aperto in una piccola veranda coperta. Piatti ottimi e abbondanti con prodotti di qualità. Prezzi medi."
+                        <div class="review-translation">(Excelente restaurante gallego. También tiene mesas al aire libre en una pequeña terraza cubierta. Platos excelentes y abundantes con productos de calidad. Precios moderados.)</div>
+                    </div>
+                    <div class="review-details">
+                        <span class="detail-item">Comida: 5/5</span>
+                        <span class="detail-item">Servicio: 5/5</span>
+                        <span class="detail-item">Ambiente: 4/5</span>
+                    </div>
+                    <div class="review-price">20-30€</div>
+                </div>
+
+                <!-- Reseña 5 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-name">Emilie J</div>
+                            <div class="review-meta">Hace 13 semanas</div>
+                        </div>
+                        <div class="review-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">5/5</span>
+                        </div>
+                    </div>
+                    <div class="review-content">
+                        "Nous avons fait confiance aux avis et nous avons été encore plus satisfaits de ce restaurant ! Le monsieur qui nous a accueilli était très sympathique et nous avons mangé que des bons tapas. On recommande ici plutôt que des restaurants en bord de mer plus touristiques."
+                        <div class="review-translation">(Confiamos en las reseñas y quedamos aún más satisfechos con este restaurante. El señor que nos recibió fue muy simpático y comimos muy buenas tapas. Lo recomendamos en lugar de restaurantes más turísticos junto al mar.)</div>
+                    </div>
+                    <div class="review-details">
+                        <span class="detail-item">Comida: 5/5</span>
+                        <span class="detail-item">Servicio: 5/5</span>
+                        <span class="detail-item">Ambiente: 5/5</span>
+                    </div>
+                    <div class="review-price">10-20€</div>
+                </div>
+
+                <!-- Puntuación general -->
+                <div class="overall-rating">
+                    <div class="rating-summary">
+                        <div class="rating-number">5.0</div>
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-count">Basado en reseñas de Google</div>
+                    </div>
+                    <a href="https://maps.app.goo.gl/ZUpgwA9ptVjuXPsv7" target="_blank" class="view-all-reviews">
+                        Ver todas las reseñas en Google
+                    </a>
+                </div>
             </div>
         </section>
     </div>
@@ -885,7 +1171,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3 data-translate="about-enxebre">Acerca de Enxebre</h3>
-                <p data-translate="about-description">Restaurante con más de 10 años ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
+                <p data-translate="about-description">Restaurante con más de 20 años de experiencia en la hosteleria, ofreciendo lo mejor de nuestra gastronomía con ingredientes frescos y locales.</p>
             </div>
             <div class="footer-section">
                 <h3 data-translate="quick-links">Enlaces rápidos</h3>
