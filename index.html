@@ -106,15 +106,13 @@
         
         .banner-image {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             object-position: center;
+            background-color: #1a1a1a;
         }
         
         .banner-overlay {
@@ -1345,64 +1343,94 @@
     const prevBtn = document.querySelector('.carousel-prev');
     const nextBtn = document.querySelector('.carousel-next');
     let slideIndex = 0;
+    let autoSlideInterval;
     
-    // Eliminar los puntos existentes
-    dotsContainer.innerHTML = '';
-    
-    // Crear un punto para cada diapositiva
-    slides.forEach((_, index) => {
-        const dot = document.createElement('span');
-        dot.classList.add('carousel-dot');
-        dot.dataset.slide = index;
-        dotsContainer.appendChild(dot);
+    // Verificar que existen los elementos necesarios
+    if (slides.length > 0 && dotsContainer && prevBtn && nextBtn) {
+        // Eliminar los puntos existentes
+        dotsContainer.innerHTML = '';
         
-        // Añadir event listener a cada punto
-        dot.addEventListener('click', function() {
-            slideIndex = index;
-            showSlide(slideIndex);
+        // Crear un punto para cada diapositiva
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('carousel-dot');
+            dot.dataset.slide = index;
+            dotsContainer.appendChild(dot);
+            
+            // Añadir event listener a cada punto
+            dot.addEventListener('click', function() {
+                slideIndex = index;
+                showSlide(slideIndex);
+                resetAutoSlide();
+            });
         });
-    });
-    
-    // Obtener la colección actualizada de puntos
-    const dots = document.querySelectorAll('.carousel-dot');
-    
-    // Función para mostrar una diapositiva específica
-    function showSlide(n) {
-        // Ajustar el índice si sobrepasa los límites
-        if (n >= slides.length) slideIndex = 0;
-        if (n < 0) slideIndex = slides.length - 1;
         
-        // Ocultar todas las diapositivas y desactivar todos los puntos
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+        // Obtener la colección actualizada de puntos
+        const dots = document.querySelectorAll('.carousel-dot');
         
-        // Mostrar la diapositiva actual y activar el punto correspondiente
-        slides[slideIndex].classList.add('active');
-        dots[slideIndex].classList.add('active');
+        // Función para mostrar una diapositiva específica
+        function showSlide(n) {
+            // Ajustar el índice si sobrepasa los límites
+            if (n >= slides.length) slideIndex = 0;
+            if (n < 0) slideIndex = slides.length - 1;
+            
+            // Ocultar todas las diapositivas y desactivar todos los puntos
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            // Mostrar la diapositiva actual y activar el punto correspondiente
+            if (slides[slideIndex]) {
+                slides[slideIndex].classList.add('active');
+            }
+            if (dots[slideIndex]) {
+                dots[slideIndex].classList.add('active');
+            }
+        }
+        
+        // Evento para el botón anterior
+        prevBtn.addEventListener('click', function() {
+            slideIndex -= 1;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        });
+        
+        // Evento para el botón siguiente
+        nextBtn.addEventListener('click', function() {
+            slideIndex += 1;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        });
+        
+        // Función para cambio automático de diapositivas
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(function() {
+                slideIndex += 1;
+                showSlide(slideIndex);
+            }, 5000); // Cambiar cada 5 segundos
+        }
+        
+        // Función para reiniciar el auto-slide
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Inicializar el carrusel
+        showSlide(0);
+        startAutoSlide();
+        
+        // Pausar auto-slide cuando el mouse está sobre el carrusel
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', function() {
+                clearInterval(autoSlideInterval);
+            });
+            
+            carouselContainer.addEventListener('mouseleave', function() {
+                startAutoSlide();
+            });
+        }
     }
-    
-    // Evento para el botón anterior
-    prevBtn.addEventListener('click', function() {
-        showSlide(slideIndex -= 1);
-    });
-    
-    // Evento para el botón siguiente
-    nextBtn.addEventListener('click', function() {
-        showSlide(slideIndex += 1);
-    });
-    
-    // Cambio automático de diapositivas
-    function autoSlide() {
-        showSlide(slideIndex += 1);
-        setTimeout(autoSlide, 5000); // Cambiar cada 5 segundos
-    }
-    
-    // Establecer el primer punto como activo
-    dots[0].classList.add('active');
-    slides[0].classList.add('active');
-    
-    // Iniciar el carrusel
-    autoSlide();
 });
     </script>
 </body>
